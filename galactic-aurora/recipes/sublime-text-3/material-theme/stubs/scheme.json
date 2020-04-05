@@ -1,0 +1,75 @@
+{
+    "name": "Material-Theme-${THEME_TITLE}",
+    "semanticClass": "material.theme.${THEME_IDENTIFIER}",
+    "uuid": "${THEME_UUID}",
+    "ui": {
+        "id": "material-theme",
+        "variant": {
+            "id": "${THEME_IDENTIFIER}",
+            "name": "${THEME_IDENTIFIER}"
+        },
+        "background": {
+            "primary": {
+                "hex": "${THEME_BACKGROUND}",
+                "rgb": "${THEME_BACKGROUND_RGB}"
+            },
+            "scrollbar": {
+                "hex": "#00FF00",
+                "rgb": "0, 255, 0"
+            }
+        },
+        "foreground": {
+            "primary": {
+                "hex": "${THEME_FOREGROUND}",
+                "rgb": "${THEME_FOREGROUND_RGB}"
+            },
+            "selected": {
+                "hex": "#0000FF",
+                "rgb": "0, 0, 255"
+            }
+        }
+    },
+    "scheme": {
+        "background": "${THEME_BACKGROUND_ALT_DARK}",
+        "caret": "#E2E8F0",
+        "gutter": "#41475a",
+        "selection": "#363f50",
+        "invisibles": "#717a96",
+        "highlight": "#272d38",
+        "comments": "#717a96",
+
+        "findHighlight": "#FFFFFF",
+        "foreground": "${THEME_FOREGROUND}",
+
+        "guides": "#FF0000",
+        "stackGuides": "#00FF00",
+        "activeGuide": "#0000FF",
+        "shadow": "#FF00FF",
+        "keywords": "#FFFF00",
+        "constant": "#00FFFF",
+        "string": "#FFFFFF",
+        "constantEscape": "#000000",
+        "base": {
+            "white": "#FFFFFF",
+            "black": "#000000",
+            "red": "#FF0000",
+            "orange": "#FFA500",
+            "yellow": "#FFFF00",
+            "green": "#00FF00",
+            "cyan": "#008080",
+            "blue": "#0000FF",
+            "paleblue": "#00FFFF",
+            "purple": "#800080",
+            "brown": "#663300",
+            "pink": "#FF00FF",
+            "violet": "#9999FF"
+        }
+    },
+    "extras": {
+        "plainTasks": {
+            "name": "Plain Tasks",
+            "semanticClass": "material.theme.${THEME_IDENTIFIER}.plain.tasks",
+            "uuid": "${THEME_UUID}"
+        }
+    }
+}

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+SPICETIFY_RECIPE_DIR="${HOME}/.config/spicetify"
+RECIPE_DIST_DIR="${RICE_COOKER_DIST}/Spicetify"

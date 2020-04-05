@@ -1,0 +1,25 @@
+[
+    // Toggleable UI Elements
+    { "keys": ["ctrl+b"], "command": "toggle_side_bar" },
+    { "keys": ["alt+v"], "command": "toggle_menu" },
+    
+    // Toggle Comments
+    { "keys": ["ctrl+7"], "command": "toggle_comment" },
+    { "keys": ["ctrl+shift+7"], "command": "toggle_comment", "args": { "block": true } },
+    
+    // Swap Lines
+    { "keys": ["ctrl+alt+up"], "command": "swap_line_up" },
+    { "keys": ["ctrl+alt+down"], "command": "swap_line_down" },
+
+    // Selection
+    { "keys": ["ctrl+shift+up"], "command": "move_to", "args": {"to": "bof", "extend": true} },
+    { "keys": ["ctrl+shift+down"], "command": "move_to", "args": {"to": "eof", "extend": true} },
+    { "keys": ["ctrl+shift+left"], "command": "move_to", "args": {"to": "bol", "extend": true} },
+    { "keys": ["ctrl+shift+right"], "command": "move_to", "args": {"to": "eol", "extend": true} },
+
+    // Cursor Position
+    { "keys": ["ctrl+up"], "command": "move_to", "args": {"to": "bof", "extend": false} },
+    { "keys": ["ctrl+down"], "command": "move_to", "args": {"to": "eof", "extend": false} },
+    { "keys": ["ctrl+left"], "command": "move_to", "args": {"to": "bol", "extend": false} },
+    { "keys": ["ctrl+right"], "command": "move_to", "args": {"to": "eol", "extend": false} },
+]

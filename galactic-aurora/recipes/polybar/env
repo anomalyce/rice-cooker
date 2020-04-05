@@ -1,0 +1,4 @@
+#!/bin/bash
+
+POLYBAR_RECIPE_DIR="${HOME}/.config/polybar"
+RECIPE_DIST_DIR="${RICE_COOKER_DIST}/polybar"

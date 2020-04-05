@@ -1,0 +1,4 @@
+#!/bin/bash
+
+SUBL_RECIPE_DIR="${HOME}/.config/sublime-text-3"
+RECIPE_DIST_DIR="${RICE_COOKER_DIST}/sublime-text-3"

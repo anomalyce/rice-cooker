@@ -1,0 +1,27 @@
+.theme-dark {
+    /* Username identifier */
+    --header-secondary: $THEME_FOREGROUND;
+
+    /* Chat background */
+    --background-primary: $THEME_BACKGROUND_ALT_DARK;
+
+    /* Sidebar background */
+    --background-secondary: $THEME_BACKGROUND;
+
+    /* Sidebar bottom background */
+    --background-secondary-alt: $THEME_BACKGROUND;
+
+    /* Search input background */
+    --background-tertiary: $THEME_BACKGROUND_ALT_LIGHT;
+
+    /* Textarea */
+    --channeltextarea-background: $THEME_BACKGROUND;
+
+    /* Selected conversation */
+    --background-modifier-selected: $THEME_BACKGROUND_ALT_LIGHT;
+}
+
+/* Friends list */
+.theme-dark .container-1D34oG {
+    background-color: $THEME_BACKGROUND_ALT_DARK;
+}

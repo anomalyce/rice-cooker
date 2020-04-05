@@ -1,0 +1,4 @@
+#!/bin/bash
+
+ALACRITTY_RECIPE_DIR="${HOME}/.config/alacritty"
+RECIPE_DIST_DIR="${RICE_COOKER_DIST}/polybar"

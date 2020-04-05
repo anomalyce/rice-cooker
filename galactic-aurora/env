@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Information
+export THEME_TITLE="Galactic-Aurora"
+export THEME_IDENTIFIER="galacticaurora"
+export THEME_UUID=`uuidgen -t`
+
+# Brand colours
+export THEME_PRIMARY="#657fe0"
+
+# Backgrounds colours
+export THEME_BACKGROUND="#1e222c"
+export THEME_BACKGROUND_ALT_LIGHT="#242935"
+export THEME_BACKGROUND_ALT_DARK="#181c24"
+
+# Foreground colours
+export THEME_FOREGROUND="#cdd5df"
+export THEME_FOREGROUND_ALT_LIGHT="#e2e7ed"
+export THEME_FOREGROUND_ALT_DARK="#b9c3d0"

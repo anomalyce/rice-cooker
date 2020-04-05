@@ -1,0 +1,23 @@
+:root {
+    --black: $THEME_BACKGROUND;
+    --background-primary: var(--black);
+    --background-secondary: $THEME_BACKGROUND_ALT_DARK;
+}
+
+/* Content */
+main[role="main"] > div > div > div > div {
+    background-color: var(--background-secondary) !important;
+}
+
+/* Sidebar */
+body {
+    background-color: var(--background-primary) !important;
+}
+
+/* Header */
+main[role="main"] > div > div > div > div > div > div > div > div > div > div,
+main[role="main"] > div > div > div > div > div > div > div > div > div > div > div:first-of-type,
+.r-yfoy6g,
+.r-kemksi {
+    background-color: var(--background-primary) !important;
+}

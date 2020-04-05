@@ -1,0 +1,5 @@
+
+div.app > div:nth-child(3) {
+    flex: 15% !important;
+    order: 2 !important;
+}

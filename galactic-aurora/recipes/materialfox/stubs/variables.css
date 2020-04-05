@@ -1,0 +1,27 @@
+/* dark mode */
+:root[style*="--lwt-accent-color:rgb(12, 12, 13);"],
+:root[privatebrowsingmode=temporary]
+{
+    /* accentcolor */
+    --lwt-accent-color: $THEME_BACKGROUND_ALT_DARK !important;
+
+    /* toolbar */
+    --toolbar-bgcolor: $THEME_BACKGROUND !important;
+
+    /* toolbar_text */
+    --toolbar-color: $THEME_FOREGROUND !important;
+
+    /* popup */
+    --arrowpanel-background: $THEME_BACKGROUND !important;
+
+    /* popup_text */
+    --arrowpanel-color: $THEME_FOREGROUND !important;
+    --autocomplete-popup-color: $THEME_FOREGROUND !important;
+}
+
+:root:-moz-any(:-moz-lwtheme-brighttext, [privatebrowsingmode=temporary])
+{
+    --toolbar-field-background-color: $THEME_BACKGROUND_ALT_LIGHT !important;
+    --toolbar-field-hover-background-color: $THEME_BACKGROUND !important;
+    --toolbar-field-focus-background-color: $THEME_BACKGROUND !important;
+}

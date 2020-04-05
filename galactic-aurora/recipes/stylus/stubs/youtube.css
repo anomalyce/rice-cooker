@@ -1,0 +1,26 @@
+html:not(.style-scope)[dark], :not(.style-scope)[dark] {
+    --background-primary: $THEME_BACKGROUND;
+    --background-secondary: $THEME_BACKGROUND_ALT_DARK;
+    --background-button: $THEME_BACKGROUND_ALT_LIGHT;
+    --foreground: $THEME_FOREGROUND;
+    
+    --yt-spec-brand-background-solid: var(--background-primary);
+    --yt-spec-brand-background-primary: var(--background-primary);
+    --yt-spec-brand-background-secondary: var(--background-primary);
+    --yt-channel-header-background: var(--background-primary);
+    --yt-sidebar-background: var(--background-primary);
+    --yt-guide-background: var(--background-primary);
+    
+    --yt-spec-general-background-a: var(--background-secondary);
+    --yt-spec-general-background-b: var(--background-secondary);
+    --yt-spec-general-background-c: var(--background-secondary);
+    --yt-app-background: var(--background-secondary);
+    --yt-main-app-background: var(--background-secondary);
+    --yt-main-app-background-tmp: var(--background-secondary);
+    --yt-searchbox-background: var(--background-secondary);
+}
+
+ytd-toggle-button-renderer.style-compact-gray[is-paper-button] {
+    background-color: var(--background-button);
+    color: var(--foreground);
+}

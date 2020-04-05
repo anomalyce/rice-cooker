@@ -1,0 +1,4 @@
+#!/bin/bash
+
+FERDI_RECIPE_DIR="${HOME}/.config/Ferdi/recipes/whatsapp"
+RECIPE_DIST_DIR="${RICE_COOKER_DIST}/Ferdi"
