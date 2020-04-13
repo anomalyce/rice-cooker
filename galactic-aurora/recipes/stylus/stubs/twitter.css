@@ -1,7 +1,7 @@
 :root {
     --black: $THEME_BACKGROUND;
     --background-primary: var(--black);
-    --background-secondary: $THEME_BACKGROUND_ALT_DARK;
+    --background-secondary: $THEME_BACKGROUND_DARK;
 }
 
 /* Content */

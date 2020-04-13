@@ -25,7 +25,7 @@ mkdir -p ${RECIPE_DIST_DIR}
 cp ${RECIPE_CACHE_DIR}/darkmode.css ${RECIPE_DIST_DIR}/darkmode.css
 
 rice_cooker_debug "Creating symlinks for Ferdi"
-mkdir -p ${FERDI_RECIPE_DIR}
-ln -sf ${RECIPE_DIST_DIR}/darkmode.css ${FERDI_RECIPE_DIR}/darkmode.css
+mkdir -p ${RECIPE_CONFIG_DIR}
+ln -sf ${RECIPE_DIST_DIR}/darkmode.css ${RECIPE_CONFIG_DIR}/darkmode.css
 
 exit 0

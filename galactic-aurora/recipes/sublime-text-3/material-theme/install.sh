@@ -4,7 +4,7 @@ if ! [ -x "$(command -v subl3)" ]; then
     rice_cooker_skip "Sublime Text 3 is not installed, skipping Sublime Text 3's theme compilation..."
 fi
 
-if [ ! -f "${SUBL_RECIPE_DIR}/Installed Packages/PackageDev.sublime-package" ]; then
+if [ ! -f "${RECIPE_CONFIG_DIR}/Installed Packages/PackageDev.sublime-package" ]; then
     rice_cooker_skip "PackageDev is not installed, skipping Sublime Text 3's theme compilation..."
 fi
 
@@ -46,7 +46,7 @@ cat "${RECIPE_CACHE_DIR}/Material-Theme-${THEME_TITLE}.sublime-theme" > "${RECIP
 cat "${RECIPE_CACHE_DIR}/schemes/Material-Theme-${THEME_TITLE}.tmTheme" > "${RECIPE_DIST_DIR}/Material-Theme-${THEME_TITLE}.tmTheme"
 
 rice_cooker_debug "Creating symlinks for Material Theme"
-ln -sf "${RECIPE_DIST_DIR}/Material-Theme-${THEME_TITLE}.sublime-theme" "${SUBL_RECIPE_DIR}/Packages/User/Material-Theme-${THEME_TITLE}.sublime-theme"
-ln -sf "${RECIPE_DIST_DIR}/Material-Theme-${THEME_TITLE}.tmTheme" "${SUBL_RECIPE_DIR}/Packages/User/Material-Theme-${THEME_TITLE}.tmTheme"
+ln -sf "${RECIPE_DIST_DIR}/Material-Theme-${THEME_TITLE}.sublime-theme" "${RECIPE_CONFIG_DIR}/Packages/User/Material-Theme-${THEME_TITLE}.sublime-theme"
+ln -sf "${RECIPE_DIST_DIR}/Material-Theme-${THEME_TITLE}.tmTheme" "${RECIPE_CONFIG_DIR}/Packages/User/Material-Theme-${THEME_TITLE}.tmTheme"
 
 exit 0

@@ -3,7 +3,7 @@
 :root[privatebrowsingmode=temporary]
 {
     /* accentcolor */
-    --lwt-accent-color: $THEME_BACKGROUND_ALT_DARK !important;
+    --lwt-accent-color: $THEME_BACKGROUND_DARK !important;
 
     /* toolbar */
     --toolbar-bgcolor: $THEME_BACKGROUND !important;
@@ -21,7 +21,7 @@
 
 :root:-moz-any(:-moz-lwtheme-brighttext, [privatebrowsingmode=temporary])
 {
-    --toolbar-field-background-color: $THEME_BACKGROUND_ALT_LIGHT !important;
+    --toolbar-field-background-color: $THEME_BACKGROUND_LIGHT !important;
     --toolbar-field-hover-background-color: $THEME_BACKGROUND !important;
     --toolbar-field-focus-background-color: $THEME_BACKGROUND !important;
 }

@@ -3,7 +3,7 @@
     --header-secondary: $THEME_FOREGROUND;
 
     /* Chat background */
-    --background-primary: $THEME_BACKGROUND_ALT_DARK;
+    --background-primary: $THEME_BACKGROUND_DARK;
 
     /* Sidebar background */
     --background-secondary: $THEME_BACKGROUND;
@@ -12,16 +12,16 @@
     --background-secondary-alt: $THEME_BACKGROUND;
 
     /* Search input background */
-    --background-tertiary: $THEME_BACKGROUND_ALT_LIGHT;
+    --background-tertiary: $THEME_BACKGROUND_LIGHT;
 
     /* Textarea */
     --channeltextarea-background: $THEME_BACKGROUND;
 
     /* Selected conversation */
-    --background-modifier-selected: $THEME_BACKGROUND_ALT_LIGHT;
+    --background-modifier-selected: $THEME_BACKGROUND_LIGHT;
 }
 
 /* Friends list */
 .theme-dark .container-1D34oG {
-    background-color: $THEME_BACKGROUND_ALT_DARK;
+    background-color: $THEME_BACKGROUND_DARK;
 }

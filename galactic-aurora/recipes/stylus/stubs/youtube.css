@@ -1,7 +1,7 @@
 html:not(.style-scope)[dark], :not(.style-scope)[dark] {
     --background-primary: $THEME_BACKGROUND;
-    --background-secondary: $THEME_BACKGROUND_ALT_DARK;
-    --background-button: $THEME_BACKGROUND_ALT_LIGHT;
+    --background-secondary: $THEME_BACKGROUND_DARK;
+    --background-button: $THEME_BACKGROUND_LIGHT;
     --foreground: $THEME_FOREGROUND;
     
     --yt-spec-brand-background-solid: var(--background-primary);

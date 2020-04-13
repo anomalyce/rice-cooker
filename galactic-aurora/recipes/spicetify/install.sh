@@ -15,10 +15,10 @@ rice_cooker_debug "Stripping hashtags from HEX colour codes"
 sed -i -e 's/\#//g' ${RECIPE_DIST_DIR}/color.ini
 
 rice_cooker_debug "Creating symlinks for Spicetify"
-ln -sf ${RECIPE_DIST_DIR} "${SPICETIFY_RECIPE_DIR}/Themes/rice-cooker"
+ln -sf ${RECIPE_DIST_DIR} "${RECIPE_CONFIG_DIR}/Themes/rice-cooker"
 
 rice_cooker_debug "Updating active Spicetify theme"
-sed -i 's/current_theme.*= .*/current_theme = "rice-cooker"/' ${SPICETIFY_RECIPE_DIR}/config.ini
+sed -i 's/current_theme.*= .*/current_theme = "rice-cooker"/' ${RECIPE_CONFIG_DIR}/config.ini
 
 rice_cooker_debug "Applying CSS through Spicetify"
 spicetify apply

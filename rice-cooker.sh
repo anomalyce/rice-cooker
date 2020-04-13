@@ -1,20 +1,23 @@
 #/bin/bash
 
+sudo -v
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 RICE_COOKER_DEBUG=1
-RICE_COOKER_DIR="${PWD}"
+export RICE_COOKER_DIR="${PWD}"
 
 if [ ! -z "${XDG_DATA_HOME}" ]; then
-    RICE_COOKER_DIST="${XDG_DATA_HOME}/rice-cooker"
+    export RICE_COOKER_DIST="${XDG_DATA_HOME}/rice-cooker"
 else
-    RICE_COOKER_DIST="${HOME}/.local/share/rice-cooker"
+    export RICE_COOKER_DIST="${HOME}/.local/share/rice-cooker"
 fi
 
 mkdir -p "${RICE_COOKER_DIST}"
 
 if [ ! -z "${XDG_CACHE_HOME}" ]; then
-    RICE_COOKER_CACHE="${XDG_CACHE_HOME}/rice-cooker"
+    export RICE_COOKER_CACHE="${XDG_CACHE_HOME}/rice-cooker"
 else
-    RICE_COOKER_CACHE="${HOME}/.cache/rice-cooker"
+    export RICE_COOKER_CACHE="${HOME}/.cache/rice-cooker"
 fi
 
 mkdir -p "${RICE_COOKER_CACHE}"
@@ -43,7 +46,11 @@ function rice_cooker_recipe_cache_dir {
 function rice_cooker_substitute_env {
     local FILEPATH=$1
 
+    # Use `${VAR}` or `$VAR` to replace variables with their actual values.
     RICE_COOKER_OUTPUT=$(envsubst < ${FILEPATH})
+
+    # Use `@{VAR}` to prevent an existing variable to be replaced.
+    RICE_COOKER_OUTPUT=$(echo "${RICE_COOKER_OUTPUT}" | sed -r 's/\@\{(\w+)\}/\$\1/')
 }
 
 #
@@ -121,6 +128,26 @@ function rice_cooker_skip {
 
     echo -e "${FG}[${YELLOW} !! NOTICE !! ${FG}]: ${MESSAGE}${RESET}"
     exit 0
+}
+
+#
+# Display a manual instruction for the user.
+#
+# @param  string  MESSAGE
+# @return string
+#
+function rice_cooker_instruction {
+    local MESSAGE=$1
+}
+
+#
+# Display a manual code instruction for the user.
+#
+# @param  string  CODE
+# @return string
+#
+function rice_cooker_manual_code {
+    local CODE=$1
 }
 
 #
@@ -212,8 +239,8 @@ function rice_cooker_install {
     fi
 
     # Execute recipe installers
-    for file in ${RECIPE_DIR}/*/install.sh; do
-        local RECIPE_DIR=`dirname ${file}`
+    for FILE in ${RECIPE_DIR}/*/install.sh; do
+        local RECIPE_DIR=`dirname ${FILE}`
         local RECIPE=`basename ${RECIPE_DIR}`
 
         (
@@ -228,16 +255,24 @@ function rice_cooker_install {
             rice_cooker_debug "--------------------~< ${BLUE}${RECIPE}${FG} >~--------------------"
 
             local RICE_COOKER_RECIPE="${RECIPE}"
+            local ENV="$(dirname ${FILE})/env"
 
-            local ENV="$(dirname ${file})/env"
+            export RECIPE_DIST_DIR="${RICE_COOKER_DIST}/${RECIPE}"
+
+            if [ -d "${RECIPE_DIST_DIR}" ]; then
+                rm -rf "${RECIPE_DIST_DIR}"
+            fi
 
             if [ -f "${ENV}" ]; then
                 source "${ENV}"
             fi
 
-            if [ -f "${file}" ]; then
-                source "${file}"
+            if [ -f "${FILE}" ]; then
+                source "${FILE}"
             fi
+
+            unset RECIPE_DIST_DIR
+            unset RECIPE_CONFIG_DIR
         )
 
         EXIT_CODE=${PIPESTATUS[0]}

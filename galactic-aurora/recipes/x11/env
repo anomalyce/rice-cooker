@@ -1,4 +1,0 @@
-#!/bin/bash
-
-X11_RECIPE_DIR="${HOME}"
-RECIPE_DIST_DIR="${RICE_COOKER_DIST}/x11"

@@ -1,3 +1,0 @@
-#!/bin/bash
-
-RECIPE_DIST_DIR="${RICE_COOKER_DIST}/ghacks-user.js"

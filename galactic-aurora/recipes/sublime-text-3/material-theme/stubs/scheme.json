@@ -30,7 +30,7 @@
         }
     },
     "scheme": {
-        "background": "${THEME_BACKGROUND_ALT_DARK}",
+        "background": "${THEME_BACKGROUND_DARK}",
         "caret": "#E2E8F0",
         "gutter": "#41475a",
         "selection": "#363f50",
