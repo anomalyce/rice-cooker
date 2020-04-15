@@ -5,8 +5,11 @@ rice_cooker_recipe_cache_dir
 rice_cooker_debug "Downloading git repository"
 git clone git@github.com:muckSponge/MaterialFox.git ${RECIPE_CACHE_DIR}
 
+if [ -d "${RECIPE_DIST_DIR}" ]; then
+    rm -r ${RECIPE_DIST_DIR}
+fi
+
 rice_cooker_debug "Migrating out of cache"
-rm -r ${RECIPE_DIST_DIR}
 cp -r ${RECIPE_CACHE_DIR}/chrome ${RECIPE_DIST_DIR}
 
 rice_cooker_debug "Replacing darkmode variables"
