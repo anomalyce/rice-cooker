@@ -1,0 +1,26 @@
+{
+    "name": "rice-cooker/rice-cooker",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anomalyce",
+            "email": "anomalyce+github@protonmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "nunomaduro/collision": "~4.2",
+        "illuminate/console": "~7.0",
+        "illuminate/events": "~7.0",
+        "illuminate/filesystem": "~7.0",
+        "illuminate/pipeline": "~7.0",
+        "vlucas/phpdotenv": "~4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "RiceCooker\\": "src/",
+            "FerdiWhatsApp\\": "recipes/FerdiWhatsApp/"
+        }
+    }
+}

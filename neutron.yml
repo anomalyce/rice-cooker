@@ -1,0 +1,27 @@
+sublime_project:
+    "%project%":
+        path: "."
+    dist:
+        path: "~/.local/share/rice-cooker"
+    cache:
+        path: "~/.cache/rice-cooker"
+
+i3_workspace:
+    panel_left:
+        width: 0.35
+        nodes:
+            Cache:
+                terminal: true
+                path: "~/.cache/rice-cooker"
+            Dist:
+                terminal: true
+                path: "~/.local/share/rice-cooker"
+            Source:
+                terminal: true
+                path: "."
+    panel_right:
+        width: 0.65
+        nodes:
+            editor: true
+
+# vim: set ft=yaml tabstop=4 shiftwidth=4 :
