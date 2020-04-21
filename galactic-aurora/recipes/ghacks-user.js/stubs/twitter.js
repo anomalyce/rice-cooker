@@ -33,6 +33,9 @@ user_pref("reader.parse-on-load.enabled", false);
 // Disable `What's New`
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
+// Prevent sites from failing completely when the OCSP fails
+user_pref("security.ssl.enable_ocsp_stapling", false);
+
 
 
 /**

@@ -44,6 +44,9 @@ user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 // Required for viafree.se to function
 user_pref("security.ssl.require_safe_negotiation", false);
 
+// Prevent sites from failing completely when the OCSP fails
+user_pref("security.ssl.enable_ocsp_stapling", false);
+
 
 
 /**
