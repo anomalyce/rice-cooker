@@ -1,11 +1,11 @@
 #!/bin/bash
 
-if ! [ -x "$(command -v subl3)" ]; then
-    rice_cooker_skip "Sublime Text 3 is not installed, skipping Sublime Text 3's theme compilation..."
+if ! [ -x "$(command -v subl)" && -x "$(command -v subl3)" && -x "$(command -v subl4)" ]; then
+    rice_cooker_skip "Sublime Text is not installed, skipping Sublime Text's theme compilation..."
 fi
 
 if [ ! -f "${RECIPE_CONFIG_DIR}/Installed Packages/PackageDev.sublime-package" ]; then
-    rice_cooker_skip "PackageDev is not installed, skipping Sublime Text 3's theme compilation..."
+    rice_cooker_skip "PackageDev is not installed, skipping Sublime Text's theme compilation..."
 fi
 
 rice_cooker_recipe_cache_dir
