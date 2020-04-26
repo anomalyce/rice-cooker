@@ -46,6 +46,7 @@ user_pref("security.ssl.require_safe_negotiation", false);
 
 // Prevent sites from failing completely when the OCSP fails
 user_pref("security.ssl.enable_ocsp_stapling", false);
+user_pref("security.OCSP.require", false);
 
 
 

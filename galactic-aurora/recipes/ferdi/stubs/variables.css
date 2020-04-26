@@ -1,0 +1,8 @@
+
+:root {
+    --darken: $THEME_BACKGROUND;
+    --darker: $THEME_BACKGROUND_DARK;
+    --dark: $THEME_BACKGROUND_DARK;
+    --bg-opacity: 0;
+    --chat-bg-o: 0.1;
+}

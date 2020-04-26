@@ -2,6 +2,9 @@
     /* Username identifier */
     --header-secondary: $THEME_FOREGROUND;
 
+    /* Login background */
+    --background-mobile-primary: $THEME_BACKGROUND;
+
     /* Chat background */
     --background-primary: $THEME_BACKGROUND_DARK;
 
@@ -22,6 +25,28 @@
 }
 
 /* Friends list */
-.theme-dark .container-1D34oG {
+.theme-dark #app-mount div[class*="base-"] > div[class^="content-"] > div[class*="container-"] {
     background-color: $THEME_BACKGROUND_DARK;
 }
+
+/* Video call wrapper */
+.theme-dark #app-mount div[class*="base-"] div[class*="chat-"] > div[class*="wrapper-"] {
+    background-color: $THEME_BACKGROUND_DARK;
+}
+
+/* Video call individual people */
+.theme-dark #app-mount div[class*="base-"] div[class*="chat-"] div[class*="grid-"] div[class*="tile-"][role="button"] [class*="content-"] > div {
+    background-color: $THEME_BACKGROUND !important;
+}
+
+/* Video call individual people speaking */
+.theme-dark #app-mount div[class*="base-"] div[class*="chat-"] div[class*="grid-"] div[class*="tile-"][role="button"] [class*="border-"][class*="speaking-"] {
+    box-shadow: inset 0 0 0 5px #43b581;
+}
+
+/* Large Emojis */
+/*.emoji.jumboable {
+    width: 1.375em !important;
+    height: inherit !important;
+    min-height: inherit !important;
+}*/

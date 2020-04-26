@@ -1,0 +1,8 @@
+:root {
+    --night_color1: ${THEME_BACKGROUND_DARK} !important;
+    --night_color2: ${THEME_BACKGROUND_LIGHT} !important;
+    --night_color3: ${THEME_BACKGROUND_LIGHT} !important;
+    --night_color4: ${THEME_BACKGROUND_LIGHTER} !important;
+
+    --frost_color3: ${THEME_FOREGROUND} !important;
+}
