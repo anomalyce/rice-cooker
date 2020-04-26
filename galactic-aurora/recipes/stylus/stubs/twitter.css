@@ -21,3 +21,8 @@ main[role="main"] > div > div > div > div > div > div > div > div > div > div > 
 .r-kemksi {
     background-color: var(--background-primary) !important;
 }
+
+/* Hide post comments when viewing a photo */
+.css-1dbjc4n.r-yfoy6g.r-18bvks7.r-1ljd8xs.r-1phboty.r-1dqxon3.r-1hycxz {
+    display: none;
+}

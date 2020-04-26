@@ -1,0 +1,19 @@
+
+/* New content indicator */
+.tabbrowser-tab:-moz-any([image], 
+[pinned]) > .tab-stack > .tab-content[attention]:not([selected="true"]), 
+.tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected="true"]) {
+    background-image: none !important;
+}
+
+/* Media blocked indicator */
+.tab-icon-overlay[activemedia-blocked],
+.tab-icon-overlay[activemedia-blocked]:not([crashed]),
+.tab-icon-sound[activemedia-blocked] {
+    list-style-image: none !important;
+}
+
+/* Sound playing/muted/media blocked indicator */
+#tabbrowser-tabs .tabbrowser-tab[pinned]:-moz-any([soundplaying], [muted], [activemedia-blocked]) .tab-icon-image {
+    visibility: visible !important;
+}

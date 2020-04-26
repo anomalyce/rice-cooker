@@ -30,22 +30,22 @@ SELECTION=$(echo ${COMMAND} | sh)
 
 case "${SELECTION}" in
     "Boot (Monitor)")
-        $USERSCRIPTS/win10/start-monitor.sh
+        $USERSCRIPTS/qemu-windows/start-with-monitor.sh
         ;;
 
     "Boot (Looking Glass)")
-        $USERSCRIPTS/win10/start-lookingglass.sh
+        $USERSCRIPTS/qemu-windows/start-with-lookingglass.sh
         ;;
 
     "Shutdown")
-        $USERSCRIPTS/win10/shutdown.sh
+        $USERSCRIPTS/qemu-windows/shutdown.sh
         ;;
 
     "Barrier Client")
-        $USERSCRIPTS/win10/barrier.sh
+        $USERSCRIPTS/qemu-hooks/barrier.sh
         ;;
 
     "Looking Glass Client")
-        $USERSCRIPTS/win10/looking-glass.sh
+        $USERSCRIPTS/qemu-windows/looking-glass.sh
         ;;
 esac
