@@ -8,6 +8,7 @@ user_pref("browser.startup.homepage", "https://twitter.com");
 
 // Volume
 user_pref("media.default_volume", 0.3);
+user_pref("media.volume_scale", "0.3");
 
 
 
