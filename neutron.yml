@@ -8,6 +8,10 @@ sublime_project:
 
 i3_workspace:
     panel_left:
+        width: 0.65
+        nodes:
+            editor: true
+    panel_right:
         width: 0.35
         nodes:
             Cache:
@@ -19,9 +23,5 @@ i3_workspace:
             Source:
                 terminal: true
                 path: "."
-    panel_right:
-        width: 0.65
-        nodes:
-            editor: true
 
 # vim: set ft=yaml tabstop=4 shiftwidth=4 :

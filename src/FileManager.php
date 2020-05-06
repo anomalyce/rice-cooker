@@ -2,6 +2,12 @@
 
 namespace RiceCooker;
 
+use Closure;
+use League\Flysystem\Filesystem;
+use Symfony\Component\Process\Process;
+use League\Flysystem\Local\LocalFilesystemAdapter;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+
 class FileManager
 {
     /**
@@ -10,6 +16,20 @@ class FileManager
      * @var \RiceCooker\RiceCooker
      */
     protected $cooker;
+
+    /**
+     * Holds the base path.
+     * 
+     * @var string
+     */
+    protected $basepath;
+
+    /**
+     * Whether the commands & their outputs should be printed.
+     * 
+     * @var boolean
+     */
+    protected $silent = false;
 
     /**
      * Instantiate a new object.
@@ -23,14 +43,66 @@ class FileManager
     }
 
     /**
-     * Execute a command and return it's exit code.
+     * Set the base path.
      * 
-     * @param  string  $command
-     * @return integer
+     * @param  string  $path
+     * @return void
      */
-    public function run($command): int
+    public function setBasePath($path)
     {
-        return 1;
+        $this->basepath = $path;
+        
+        $this->filesystem = new Filesystem(
+            new LocalFilesystemAdapter($this->basepath)
+        );
+    }
+
+    /**
+     * Silence any commands and their outputs.
+     * 
+     * @param  \Closure  $callback
+     * @return mixed
+     */
+    public function silent(Closure $callback)
+    {
+        $this->silent = true;
+
+        $response = $callback($this);
+
+        $this->silent = false;
+
+        return $response;
+    }
+
+    /**
+     * Execute a command and return it's output.
+     * 
+     * @param  array  $parameters
+     * @return mixed
+     */
+    public function run(array $parameters)
+    {
+        if (! $this->silent) {
+            $this->cooker->command($command = implode(' ', $parameters));
+        }
+
+        $process = new Process($parameters);
+
+        $process->run(function ($type, $buffer) {
+            if ($this->silent) {
+                return;
+            }
+
+            $this->cooker->commandOutput($buffer);
+        });
+
+        if (! $process->isSuccessful()) {
+            throw new ProcessFailedException($process);
+        }
+
+        $this->cooker->commandResponse($process->getExitCode());
+
+        return $process;
     }
 
     /**
@@ -42,7 +114,9 @@ class FileManager
      */
     public function gitClone($repository, $destination = '.'): int
     {
-        return $this->run("git clone ${repository} ${destination}");
+        $response = $this->run(['git', 'clone', $repository, $destination]);
+
+        return $response->getExitCode();
     }
 
     /**
@@ -63,7 +137,9 @@ class FileManager
         }
 
         // return xdiff_file_patch($target, $patch, $destination);
-        return $this->run("patch ${target} ${patch} > ${destination}");
+        $response = $this->run("patch ${target} ${patch} > ${destination}");
+
+        return $response->getExitCode();
     }
 
     /**
@@ -74,7 +150,9 @@ class FileManager
      */
     public function cd($path): int
     {
-        return $this->run("cd ${path}");
+        $response = $this->run("cd ${path}");
+
+        return $response->getExitCode();
     }
 
     /**
@@ -85,7 +163,22 @@ class FileManager
      */
     public function mkdir($path): int
     {
-        return $this->run("mkdir -p ${path}");
+        $response = $this->run(['mkdir', '-p', $path]);
+
+        return $response->getExitCode();
+    }
+
+    /**
+     * Remove a directory.
+     * 
+     * @param  string  $path
+     * @return integer
+     */
+    public function rmdir($path): int
+    {
+        $response = $this->run(['rm', '-r', $path]);
+
+        return $response->getExitCode();
     }
 
     /**
@@ -97,7 +190,9 @@ class FileManager
      */
     public function copy($source, $destination): int
     {
-        return $this->run("cp ${source} ${destination}");
+        $response = $this->run("cp ${source} ${destination}");
+
+        return $response->getExitCode();
     }
 
     /**
@@ -112,7 +207,9 @@ class FileManager
     {
         $flags = $recursive ? ' -R' : null;
 
-        return $this->run("chmod${flags} ${permissions} ${path}");
+        $response = $this->run("chmod${flags} ${permissions} ${path}");
+
+        return $response->getExitCode();
     }
 
     /**
@@ -127,7 +224,9 @@ class FileManager
     {
         $flags = $recursive ? ' -R' : null;
 
-        return $this->run("chmod${flags} ${ownership} ${path}");
+        $response = $this->run("chmod${flags} ${ownership} ${path}");
+
+        return $response->getExitCode();
     }
 
     /**
@@ -139,6 +238,8 @@ class FileManager
      */
     public function symlink($source, $target): int
     {
-        return $this->run("ln -s ${source} ${target}");
+        $response = $this->run("ln -s ${source} ${target}");
+
+        return $response->getExitCode();
     }
 }

@@ -74,6 +74,20 @@ final class RiceCooker
     public $recipe;
 
     /**
+     * Holds the installing state.
+     * 
+     * @var string
+     */
+    public const INSTALL = 'install';
+
+    /**
+     * Holds the uninstalling state.
+     * 
+     * @var string
+     */
+    public const UNINSTALL = 'uninstall';
+
+    /**
      * Instantiate a new RiceCooker object.
      * 
      * @param  string  $name
@@ -224,6 +238,53 @@ final class RiceCooker
     public function log($message)
     {
         $this->output->line("   <fg=black;options=bold>╰─┈┈┈╼</> <fg=white>${message}</>");
+    }
+
+    /**
+     * Write a command message.
+     * 
+     * @param  string  $command
+     * @return void
+     */
+    public function command($command)
+    {
+        if (! $this->output->getOutput()->isVerbose()) {
+            return;
+        }
+
+        $this->output->line("   <fg=black;options=bold>│    $</>  <fg=yellow>${command}</>");
+    }
+
+    /**
+     * Write a command output message.
+     * 
+     * @param  string  $output
+     * @return void
+     */
+    public function commandOutput($output)
+    {
+        if (! $this->output->getOutput()->isVeryVerbose()) {
+            return;
+        }
+
+        foreach (explode(PHP_EOL, trim($output, PHP_EOL)) as $line) {
+            $this->output->line("   <fg=black;options=bold>│       ${line}</>");
+        }
+    }
+
+    /**
+     * Write a command response code.
+     * 
+     * @param  string  $code
+     * @return void
+     */
+    public function commandResponse($code)
+    {
+        if (! $this->output->getOutput()->isDebug()) {
+            return;
+        }
+
+        $this->output->line("   <fg=black;options=bold>│    >  </><fg=yellow>${code}</>");
     }
 
     /**

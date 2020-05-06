@@ -14,6 +14,13 @@ class ConfigManager
     protected $cooker;
 
     /**
+     * Holds the custom config file path.
+     * 
+     * @var string
+     */
+    protected $file;
+
+    /**
      * Instantiate a new object.
      * 
      * @param  \RiceCooker\RiceCooker  $cooker
@@ -22,6 +29,17 @@ class ConfigManager
     public function __construct(RiceCooker $cooker)
     {
         $this->cooker = $cooker;
+    }
+
+    /**
+     * Set the custom config file path.
+     * 
+     * @param  string  $path
+     * @return void
+     */
+    public function setFile($path)
+    {
+        $this->file = $path;
 
         $dotenv = Dotenv::createImmutable($this->getConfigPaths(), $this->getConfigNames(), true);
         $dotenv->load();
