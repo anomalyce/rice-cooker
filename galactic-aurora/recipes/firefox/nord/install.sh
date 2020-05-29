@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Download manually and unzip into src directory
 # https://www.deviantart.com/dpcdpc11/art/Nord-for-Firefox-837860916

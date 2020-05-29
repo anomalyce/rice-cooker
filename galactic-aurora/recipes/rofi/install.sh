@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if ! [ -x "$(command -v rofi)" ]; then
     rice_cooker_skip "rofi is not installed, skipping recipe..."

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if ! [ -x "$(command -v subl)" ]; then
     rice_cooker_skip "Sublime Text is not installed, skipping recipe..."

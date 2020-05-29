@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-echo ""
+echo "%{T5}%{T-}"

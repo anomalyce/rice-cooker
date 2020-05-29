@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if ! [ -x "$(command -v beautifuldiscord)" ]; then
     rice_cooker_skip "beautifuldiscord is not installed, skipping recipe..."

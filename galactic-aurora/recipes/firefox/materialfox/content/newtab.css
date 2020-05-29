@@ -1,0 +1,11 @@
+:root {
+    --newtab-background-color: $THEME_BACKGROUND !important;
+}
+
+/*@-moz-document url-prefix("about:") {*/
+@-moz-document url("about:home"), url("about:newtab"), url("about:blank") {
+    body,
+    .activity-stream {
+        background: $THEME_BACKGROUND !important;
+    }
+}
