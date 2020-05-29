@@ -50,7 +50,10 @@ function rice_cooker_substitute_env {
     RICE_COOKER_OUTPUT=$(envsubst < ${FILEPATH})
 
     # Use `@{VAR}` to prevent an existing variable to be replaced.
-    RICE_COOKER_OUTPUT=$(echo "${RICE_COOKER_OUTPUT}" | sed -r 's/\@\{(\w+)\}/\$\1/')
+    RICE_COOKER_OUTPUT=$(echo "${RICE_COOKER_OUTPUT}" | sed -r 's/\@\{/\$\{/g')
+
+    # Use `@[[VAR]]` to prevent an existing variable to be replaced.
+    RICE_COOKER_OUTPUT=$(echo "${RICE_COOKER_OUTPUT}" | sed -r 's/\@\[\[(\w+)\]\]/\$\1/gi')
 }
 
 #
@@ -91,9 +94,13 @@ function rice_cooker_load_theme_env {
         local ENV_ITEM_VALUE="${ENV_ITEM#*=}"
 
         if [[ "${ENV_ITEM_VALUE}" =~ ^#.* ]]; then
-            local TMP_ENV_NAME="${ENV_ITEM_KEY}_RGB"
+            local TMP_RGB_NAME="${ENV_ITEM_KEY}_RGB"
+            local TMP_NOHASH_NAME="${ENV_ITEM_KEY}_NOHASH"
+            local TMP_HEXDEC_NAME="${ENV_ITEM_KEY}_HEXDEC"
 
-            declare -gx "${TMP_ENV_NAME}"="$(rice_cooker_convert_hex_to_rgb ${ENV_ITEM_VALUE})"
+            declare -gx "${TMP_RGB_NAME}"="$(rice_cooker_convert_hex_to_rgb ${ENV_ITEM_VALUE})"
+            declare -gx "${TMP_NOHASH_NAME}"="$(echo "${ENV_ITEM_VALUE}" | sed 's/#//g')"
+            declare -gx "${TMP_HEXDEC_NAME}"="$(echo "0x${ENV_ITEM_VALUE}" | sed 's/#//g')"
         fi
     done <<< "${ENV_DIFF}"
 }

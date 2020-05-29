@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ -d ${RECIPE_DIST_DIR} ]; then
     rice_cooker_debug "Removing dist directory"

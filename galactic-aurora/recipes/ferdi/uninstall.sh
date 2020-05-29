@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ -f "${FERDI_RECIPE_DIR}/darkmode.css" ]; then
     rice_cooker_debug "Removing symlinks"

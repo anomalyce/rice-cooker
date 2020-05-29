@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if ! [ -x "$(command -v ferdi)" ]; then
     rice_cooker_skip "Ferdi is not installed, skipping recipe..."

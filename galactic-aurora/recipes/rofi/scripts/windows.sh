@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 SELF_DIR=`realpath $(dirname "$0")`
 
@@ -9,43 +9,46 @@ OPTIONS="\
 -sep '|' \
 -dmenu \
 -i \
--bw 5 \
--lines 4 \
--padding 80 \
+-bw 15 \
+-lines 3 \
+-padding 25 \
 -line-padding 18 \
 -width 20 \
 -xoffset 0 \
--yoffset -50 \
--location 7 \
--columns 1 \
+-yoffset 65 \
+-location 3 \
+-columns 2 \
 -no-lazy-grab \
 -monitor primary \
 -hide-scrollbar true \
--color-enabled true \
 -color-enabled true ${COLOURS}\
 "
 
-COMMAND="rofi ${OPTIONS} <<< 'Boot (Monitor)|Boot (Looking Glass)|Shutdown|Looking Glass Client'"
+COMMAND="rofi ${OPTIONS} <<< 'boot/monitor|boot/lookingglass|shutdown|process/scream|process/barrier|process/lookingglass'"
 SELECTION=$(echo ${COMMAND} | sh)
 
 case "${SELECTION}" in
-    "Boot (Monitor)")
-        $USERSCRIPTS/qemu-windows/start-with-monitor.sh
+    "boot/monitor")
+        $USERSCRIPTS/qemu-control windows boot monitor
         ;;
 
-    "Boot (Looking Glass)")
-        $USERSCRIPTS/qemu-windows/start-with-lookingglass.sh
+    "boot/lookingglass")
+        $USERSCRIPTS/qemu-control windows boot lookingglass
         ;;
 
-    "Shutdown")
-        $USERSCRIPTS/qemu-windows/shutdown.sh
+    "shutdown")
+        $USERSCRIPTS/qemu-control windows shutdown
         ;;
 
-    "Barrier Client")
-        $USERSCRIPTS/qemu-hooks/barrier.sh
+    "process/scream")
+        $USERSCRIPTS/qemu-control windows run scream
         ;;
 
-    "Looking Glass Client")
-        $USERSCRIPTS/qemu-windows/looking-glass.sh
+    "process/barrier")
+        $USERSCRIPTS/qemu-control windows run barrier
+        ;;
+
+    "process/lookingglass")
+        $USERSCRIPTS/qemu-control windows run lookingglass
         ;;
 esac

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 rice_cooker_debug "HELLO WORLD I AM ALACRITTY"
 

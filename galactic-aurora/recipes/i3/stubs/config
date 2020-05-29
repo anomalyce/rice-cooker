@@ -1,0 +1,314 @@
+# i3 config file (v4) (required for exec_always to function)
+
+# v ------------------ Variables ------------------ v #
+
+# Modifier (Mod1 = Alt/Option, Mod4 = Windows/Command)
+set @[[mod]] Mod4
+
+# Monitor Outputs
+set @[[primary]] "${MONITOR_PRIMARY}"
+set @[[secondary]] "${MONITOR_SECONDARY}"
+
+# Workspaces
+set @[[ws1]] "1"
+set @[[ws2]] "2"
+set @[[ws3]] "3"
+set @[[ws4]] "4"
+set @[[ws5]] "5"
+set @[[ws6]] "6"
+set @[[ws7]] "7"
+set @[[ws8]] "8"
+set @[[ws9]] "9"
+set @[[ws10]] "10"
+
+
+
+
+
+# v ------------------ Configuration ------------------ v #
+
+# Typography
+font pango:Cantarell 16
+
+# Key to drag floating windows with
+floating_modifier @[[mod]]
+
+
+
+
+
+# v ------------------ Window Management ------------------ v #
+
+# Focus on windows when you move your mouse over them
+focus_follows_mouse no
+
+# Disable focus when on the edge of a workspace
+focus_wrapping no
+
+# Focus windows on launch
+focus_on_window_activation smart
+
+# Deny focus to project terminals
+no_focus [class="^Project" title="Alacritty$"]
+
+# Move all floating windows centrally
+for_window [floating] move position center
+
+
+
+
+
+# v ------------------ Workspaces ------------------ v #
+
+# Workspace 1
+workspace @[[ws1]] output @[[primary]]
+
+# Workspace 2
+workspace @[[ws2]] output @[[primary]]
+assign [class="^firefox$"] @[[ws2]]
+
+# Workspace 3
+workspace @[[ws3]] output @[[primary]]
+assign [class="Subl3?" title="Sublime Text$"] @[[ws3]]
+
+# Workspace 4
+workspace @[[ws4]] output @[[primary]]
+
+# Workspace 5
+workspace @[[ws5]] output @[[primary]]
+
+# Workspace 6
+workspace @[[ws6]] output @[[primary]]
+assign [class="Gimp"] @[[ws6]]
+assign [class="figma-linux"] @[[ws6]]
+
+# Workspace 7
+workspace @[[ws7]] output @[[primary]]
+assign [class="looking-glass-client"] @[[ws7]]
+assign [class="Steam"] @[[ws7]]
+assign [class="^(m|M)inecraft"] @[[ws7]]
+for_window [class="^(m|M)inecraft"] move to workspace @[[ws7]]
+
+# Workspace 8
+workspace @[[ws8]] output @[[secondary]]
+
+# Workspace 9
+workspace @[[ws9]] output @[[secondary]]
+assign [class="electron-mail"] @[[ws9]]
+assign [class="Todoist"] @[[ws9]]
+assign [class="Bitwarden"] @[[ws9]]
+
+# Workspace 10
+workspace @[[ws10]] output @[[secondary]]
+assign [class="discord"] @[[ws10]]
+assign [class="Ferdi"] @[[ws10]]
+assign [class="Riot"] @[[ws10]]
+assign [class="FirefoxYouTube"] @[[ws10]]
+assign [class="Spotify"] @[[ws10]]
+assign [class="Chromium-browser"] @[[ws10]]
+assign [class="vlc"] @[[ws10]]
+assign [class="FirefoxTwitter"] @[[ws10]]
+assign [title="AlacrittyTodoList"] @[[ws10]]
+
+
+
+
+
+# v ------------------ Execution ------------------ v #
+
+# Screenlayout
+exec --no-startup-id @[[HOME]]/.local/share/rice-cooker/i3/scripts/screenlayout.sh
+
+# Wallpaper
+exec --no-startup-id @[[USERSCRIPTS]]/misc/i3wpd/i3wpd.py "--bg-scale" @[[HOME]]/Pictures/wallpapers/i3 .jpeg &
+
+# Polybar
+exec --no-startup-id @[[HOME]]/.local/share/rice-cooker/polybar/polybar.sh &
+
+# Conky
+exec --no-startup-id cd @[[HOME]]/.local/share/rice-cooker/conky && conky --quiet --config=@[[HOME]]/.local/share/rice-cooker/conky/conky.conf &
+
+# Workspaces
+exec --no-startup-id await-network "@[[HOME]]/.local/share/rice-cooker/i3/scripts/workspaces.sh"
+
+# Mouse buttons
+exec --no-startup-id @[[USERSCRIPTS]]/misc/hardware/disable-mouse-buttons.sh &
+
+
+
+
+
+# v ------------------ Actions ------------------ v #
+
+# Terminal Launcher
+bindsym @[[mod]]+Return exec --no-startup-id alacritty
+bindsym @[[mod]]+Shift+Return exec --no-startup-id nohup firefox -P default --new-instance --class="firefox" >/dev/null 2>&1 &
+
+# System Launcher
+bindsym @[[mod]]+Shift+x exec --no-startup-id @[[HOME]]/.local/share/rice-cooker/rofi/system.sh
+
+# Applications Launcher
+bindsym @[[mod]]+d exec --no-startup-id @[[HOME]]/.local/share/rice-cooker/rofi/applications.sh
+
+# Project Launcher
+bindsym @[[mod]]+p exec --no-startup-id python @[[USERSCRIPTS]]/neutron list
+
+# Calculator Launcher
+bindsym @[[mod]]+b exec --no-startup-id @[[HOME]]/.local/share/rice-cooker/rofi/calculator.sh
+
+# Windows (QEMU) Launcher
+bindsym @[[mod]]+Shift+w exec --no-startup-id @[[HOME]]/.local/share/rice-cooker/rofi/windows.sh
+
+# MacOS (QEMU) Launcher
+# bindsym @[[mod]]+Shift+, exec --no-startup-id @[[HOME]]/.local/share/rice-cooker/rofi/macos.sh
+
+# Screenshot
+bindsym --release Ctrl+Shift+4 exec --no-startup-id "@[[USERSCRIPTS]]/drops/screenshot.sh @[[DROPS_URL]] @[[DROPS_SSH]] | xclip -selection clipboard"
+
+# Screen capture
+bindsym --release Ctrl+Shift+5 exec --no-startup-id "@[[USERSCRIPTS]]/drops/screencapture.sh @[[DROPS_URL]] @[[DROPS_SSH]] | xclip -selection clipboard"
+
+
+
+
+
+# v ------------------ VM Hotkeys ------------------ v #
+
+# Reload the configuration
+bindsym @[[mod]]+Shift+c reload
+
+# Restart the window manager
+bindsym @[[mod]]+Shift+r restart
+
+
+
+
+
+# v ------------------ Focus Hotkeys ------------------ v #
+
+# Toggle window fullscreen
+bindsym @[[mod]]+f fullscreen toggle
+
+# Focus between windows
+bindsym @[[mod]]+Up focus up
+bindsym @[[mod]]+Right focus right
+bindsym @[[mod]]+Down focus down
+bindsym @[[mod]]+Left focus left
+
+# Focus container
+bindsym @[[mod]]+c focus parent
+
+# Toggle floating mode
+bindsym @[[mod]]+Shift+space floating toggle, move position center
+
+# Kill the focused window
+bindsym @[[mod]]+Shift+q kill
+
+
+
+
+
+# v ------------------ Movement Hotkeys ------------------ v #
+
+# Move windows around
+bindsym @[[mod]]+Shift+Up move up
+bindsym @[[mod]]+Shift+Right move right
+bindsym @[[mod]]+Shift+Down move down
+bindsym @[[mod]]+Shift+Left move left
+
+# Set window split direction
+bindsym @[[mod]]+h split h
+bindsym @[[mod]]+v split v
+
+# Change container layout
+bindsym @[[mod]]+s layout stacking
+bindsym @[[mod]]+w layout tabbed
+bindsym @[[mod]]+e layout toggle split
+
+# Move workspace between the outputs
+bindsym @[[mod]]+Shift+s move workspace to output left
+
+# Jump to workspace
+bindsym @[[mod]]+1 workspace @[[ws1]]
+bindsym @[[mod]]+2 workspace @[[ws2]]
+bindsym @[[mod]]+3 workspace @[[ws3]]
+bindsym @[[mod]]+4 workspace @[[ws4]]
+bindsym @[[mod]]+5 workspace @[[ws5]]
+bindsym @[[mod]]+6 workspace @[[ws6]]
+bindsym @[[mod]]+7 workspace @[[ws7]]
+bindsym @[[mod]]+g workspace @[[ws7]]
+bindsym @[[mod]]+8 workspace @[[ws8]]
+bindsym @[[mod]]+9 workspace @[[ws9]]
+bindsym @[[mod]]+0 workspace @[[ws10]]
+
+# Move focused container to workspace
+bindsym @[[mod]]+Shift+1 move container to workspace @[[ws1]]
+bindsym @[[mod]]+Shift+2 move container to workspace @[[ws2]]
+bindsym @[[mod]]+Shift+3 move container to workspace @[[ws3]]
+bindsym @[[mod]]+Shift+4 move container to workspace @[[ws4]]
+bindsym @[[mod]]+Shift+5 move container to workspace @[[ws5]]
+bindsym @[[mod]]+Shift+6 move container to workspace @[[ws6]]
+bindsym @[[mod]]+Shift+7 move container to workspace @[[ws7]]
+bindsym @[[mod]]+Shift+g move container to workspace @[[ws7]]
+bindsym @[[mod]]+Shift+8 move container to workspace @[[ws8]]
+bindsym @[[mod]]+Shift+9 move container to workspace @[[ws9]]
+bindsym @[[mod]]+Shift+0 move container to workspace @[[ws10]]
+
+
+
+
+
+# v ------------------ Resizing Hotkeys ------------------ v #
+
+# Resize mode
+bindsym @[[mod]]+r mode "resize"
+
+mode "resize" {
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Left resize shrink width 10 px or 10 ppt
+    
+    bindsym Shift+Up resize shrink height 1 px
+    bindsym Shift+Right resize grow width 1 px
+    bindsym Shift+Down resize grow height 1 px
+    bindsym Shift+Left resize shrink width 1 px
+ 
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym @[[mod]]+r mode "default"
+}
+
+
+
+
+
+# v ------------------ Theming ------------------ v #
+
+# Window Colors (Border, Background, Text, Indicator, Child Border)
+client.focused              ${THEME_BACKGROUND} ${THEME_BACKGROUND} ${THEME_FOREGROUND} ${THEME_BACKGROUND} ${THEME_BACKGROUND}
+client.unfocused            ${THEME_BACKGROUND_DARK} ${THEME_BACKGROUND_DARK} ${THEME_BACKGROUND_LIGHTEST} ${THEME_BACKGROUND} ${THEME_BACKGROUND}
+client.focused_inactive     ${THEME_BACKGROUND} ${THEME_BACKGROUND} ${THEME_BACKGROUND_LIGHTEST} ${THEME_FOREGROUND} ${THEME_BACKGROUND}
+client.urgent               ${THEME_BACKGROUND_DARK} ${THEME_BACKGROUND_DARK} ${THEME_COLOUR_BRIGHT_RED} ${THEME_BACKGROUND} ${THEME_BACKGROUND}
+client.background           ${THEME_BACKGROUND}
+
+# Borders
+default_border pixel 0
+default_floating_border pixel 0
+border_radius 0
+for_window [class="VSCodium"] border none
+
+# Gaps
+gaps inner 15
+gaps top 65
+
+# Window Titles
+for_window [class="^.*"] title_format "  %class "
+for_window [class="Alacritty"] title_format "  %title "
+for_window [class="discord"] title_format "  Discord "
+for_window [class="FirefoxDevelopment"] title_format "  Browser "
+for_window [class="FirefoxYouTube"] title_format "  Media Browser "
+for_window [class="FirefoxTwitter"] title_format "  Twitter "
+for_window [class="Chromium-browser"] title_format "  Popcorn Time "
+for_window [class="vlc"] title_format "  Video Player "
+for_window [class="(Subl3?|VSCodium)"] title_format "  Editor "

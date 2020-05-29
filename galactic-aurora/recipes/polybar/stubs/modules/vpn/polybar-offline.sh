@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-echo "%{F${THEME_BACKGROUND_LIGHTEST}}%{F-}"
+echo "%{F${COLOR_URGENT}}%{T5}%{T-}%{F-}"

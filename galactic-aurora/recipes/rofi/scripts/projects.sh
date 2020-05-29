@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 SELF_DIR=`realpath $(dirname "$0")`
 
@@ -9,19 +9,18 @@ OPTIONS="\
 -sep '|' \
 -dmenu \
 -i \
--bw 5 \
--lines 10 \
--padding 80 \
+-bw 15 \
+-lines 20 \
+-padding 25 \
 -line-padding 18 \
--width 40 \
+-width 30 \
 -xoffset 0 \
--yoffset -50 \
--location 7 \
--columns 2 \
+-yoffset 65 \
+-location 1 \
+-columns 1 \
 -no-lazy-grab \
 -monitor primary \
 -hide-scrollbar true \
--color-enabled true \
 -color-enabled true ${COLOURS}\
 "
 

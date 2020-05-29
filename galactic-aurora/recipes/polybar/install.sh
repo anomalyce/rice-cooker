@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if ! [ -x "$(command -v polybar)" ]; then
     rice_cooker_skip "Polybar is not installed, skipping recipe..."
@@ -30,6 +30,21 @@ cp -r "${RECIPE_DIR}/stubs/modules/system" "${RECIPE_DIST_DIR}/modules/system"
 rice_cooker_substitute_env "${RECIPE_DIST_DIR}/modules/system/system.ini"
 echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/modules/system/system.ini"
 
+rice_cooker_debug "Publishing Windows module"
+cp -r "${RECIPE_DIR}/stubs/modules/windows" "${RECIPE_DIST_DIR}/modules/windows"
+rice_cooker_substitute_env "${RECIPE_DIST_DIR}/modules/windows/windows-offline.sh"
+echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/modules/windows/windows-offline.sh"
+rice_cooker_substitute_env "${RECIPE_DIST_DIR}/modules/windows/windows-online.sh"
+echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/modules/windows/windows-online.sh"
+rice_cooker_substitute_env "${RECIPE_DIST_DIR}/modules/windows/windows.ini"
+echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/modules/windows/windows.ini"
+chmod +x "${RECIPE_DIST_DIR}/modules/windows/status.sh"
+
+rice_cooker_debug "Publishing Network module"
+cp -r "${RECIPE_DIR}/stubs/modules/network" "${RECIPE_DIST_DIR}/modules/network"
+rice_cooker_substitute_env "${RECIPE_DIST_DIR}/modules/network/network.ini"
+echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/modules/network/network.ini"
+
 rice_cooker_debug "Publishing Time Date module"
 cp -r "${RECIPE_DIR}/stubs/modules/timedate" "${RECIPE_DIST_DIR}/modules/timedate"
 rice_cooker_substitute_env "${RECIPE_DIST_DIR}/modules/timedate/timedate.ini"
@@ -49,6 +64,11 @@ rice_cooker_debug "Publishing Applications module"
 cp -r "${RECIPE_DIR}/stubs/modules/applications" "${RECIPE_DIST_DIR}/modules/applications"
 rice_cooker_substitute_env "${RECIPE_DIST_DIR}/modules/applications/applications.ini"
 echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/modules/applications/applications.ini"
+
+rice_cooker_debug "Publishing Output Log module"
+cp -r "${RECIPE_DIR}/stubs/modules/outputlog" "${RECIPE_DIST_DIR}/modules/outputlog"
+rice_cooker_substitute_env "${RECIPE_DIST_DIR}/modules/outputlog/outputlog.ini"
+echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/modules/outputlog/outputlog.ini"
 
 rice_cooker_debug "Re-launching Polybar"
 source "${RECIPE_DIST_DIR}/polybar.sh"

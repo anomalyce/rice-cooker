@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 RECIPE_CONFIG_DIR="${HOME}/.config/spicetify"

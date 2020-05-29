@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if ! [ -x "$(command -v subl)" && -x "$(command -v subl3)" && -x "$(command -v subl4)" ]; then
     rice_cooker_skip "Sublime Text is not installed, skipping Sublime Text's theme compilation..."
