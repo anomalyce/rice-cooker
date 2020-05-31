@@ -2,8 +2,7 @@
 
 SELF_DIR=`realpath $(dirname "$0")`
 
-# STATUS="$(virsh list --all | grep " windows " | awk '{ print $3}')"
-STATUS="shut down"
+STATUS="$(virsh list --all | grep " windows " | awk '{ print $3}')"
 
 if ([ "x${STATUS}" == "x" ] || [ "x${STATUS}" != "xrunning" ])
 then

@@ -145,6 +145,8 @@ function rice_cooker_skip {
 #
 function rice_cooker_instruction {
     local MESSAGE=$1
+
+    rice_cooker_debug "${MESSAGE}"
 }
 
 #
@@ -155,6 +157,11 @@ function rice_cooker_instruction {
 #
 function rice_cooker_manual_code {
     local CODE=$1
+
+    local YELLOW="\033[0;33m"
+    local RESET="\033[0m"
+
+    rice_cooker_debug "${YELLOW}${CODE}${RESET}"
 }
 
 #

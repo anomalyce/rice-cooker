@@ -28,18 +28,17 @@ i3-msg --quiet "workspace ${TMP_WORKSPACE}"
 
 # Start all global programs
 if [ -f "${WORKSPACE_DIR}/global/load.sh" ]; then
-    bash -H "${WORKSPACE_DIR}/global/load.sh"
+    i3-msg --quiet "exec --no-startup-id ${WORKSPACE_DIR}/global/load.sh"
 fi
 
 # Launch all the programs
 for LOADER in $(ls "${WORKSPACE_DIR}"/[0-9]*/load.sh | sort -V);
 do
-    bash -H "${LOADER}"
+    i3-msg --quiet "exec --no-startup-id ${LOADER}"
 done
 
 # Jump to the primary workspaces
 i3-msg --quiet "workspace 10; workspace 2"
-
 
 # Mark all urgent windows as read
 for TIMER in 0 5 10; do

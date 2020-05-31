@@ -9,6 +9,14 @@ rice_cooker_recipe_cache_dir
 rice_cooker_debug "Downloading git repository"
 git clone git@github.com:vednoc/dark-whatsapp.git ${RECIPE_CACHE_DIR}
 
+rice_cooker_debug "Attempting to switch to the develop branch"
+cd ${RECIPE_CACHE_DIR} && git checkout develop
+
+# rice_cooker_debug "Converting stylus to regular CSS"
+# ${RECIPE_DIR}/scripts/convert-stylus-to-css.sh "${RECIPE_CACHE_DIR}"
+
+# exit 0
+
 rice_cooker_debug "Replacing :root variables"
 rice_cooker_substitute_env "${RECIPE_DIR}/stubs/variables.css"
 SELECTOR="  @supports (-moz-user-select: none) {
@@ -16,20 +24,11 @@ SELECTOR="  @supports (-moz-user-select: none) {
       scrollbar-width: thin;
     }
   }"
-# gawk -i inplace \
-#     -v old="${SELECTOR}" \
-#     -v new="\n${RICE_COOKER_OUTPUT}\n\n${SELECTOR}" \
-#     'p=index($0, old) { print substr($0, 1, p-1) new substr($0, p+length(old)) }' \
-#     ${RECIPE_CACHE_DIR}/wa.user.css
-
-# gawk -i inplace \
 gawk \
     -v old="${SELECTOR}" \
     -v new="\n${RICE_COOKER_OUTPUT}\n\n${SELECTOR}" \
     '{ gsub(old, new) }; { print }' \
-    ${RECIPE_CACHE_DIR}/wa.user.css
-
-
+    ${RECIPE_CACHE_DIR}/wa.user.css &> /dev/null
 
 rice_cooker_debug "Granting execute permission to shell script"
 chmod +x ${RECIPE_CACHE_DIR}/whatsapp.sh
