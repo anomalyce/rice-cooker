@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+tmppath=$(pwd)
+
+while [[ $PWD != / ]]; do
+    neutron=$(find "$PWD"/ -maxdepth 1 -iname "neutron.yml" | head -1)
+
+    if [[ ! -z "$neutron" ]]; then
+        echo $(dirname "$neutron")
+        break
+    fi
+
+    cd ..
+done
+
+cd $tmppath

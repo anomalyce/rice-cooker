@@ -3,7 +3,7 @@
     "border": "pixel",
     "floating": "auto_off",
     "layout": "tabbed",
-    "percent": 0.270052083333333,
+    "percent": 0.244270833333333,
     "type": "con",
     "nodes": [
         {
@@ -11,16 +11,17 @@
             "current_border_width": 0,
             "floating": "auto_off",
             "geometry": {
-                "height": 2068,
-                "width": 936,
+                "height": 1280,
+                "width": 1707,
                 "x": 0,
                 "y": 0
             },
-            "name": "Twitter",
+            "name": "Todo List",
             "percent": 1,
             "swallows": [
                 {
-                    "class": "^FirefoxTwitter$"
+                    "class": "^Alacritty$",
+                    "title": "^AlacrittyTodoList$"
                 }
             ],
             "type": "con"
@@ -161,7 +162,7 @@
     "border": "pixel",
     "floating": "auto_off",
     "layout": "tabbed",
-    "percent": 0.244270833333333,
+    "percent": 0.270052083333333,
     "type": "con",
     "nodes": [
         {
@@ -169,17 +170,16 @@
             "current_border_width": 0,
             "floating": "auto_off",
             "geometry": {
-                "height": 1280,
-                "width": 1707,
+                "height": 2068,
+                "width": 936,
                 "x": 0,
                 "y": 0
             },
-            "name": "Todo List",
+            "name": "Twitter",
             "percent": 1,
             "swallows": [
                 {
-                    "class": "^Alacritty$",
-                    "title": "^AlacrittyTodoList$"
+                    "class": "^FirefoxTwitter$"
                 }
             ],
             "type": "con"

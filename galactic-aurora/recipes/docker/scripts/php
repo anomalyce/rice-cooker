@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+DOCKER_SERVICE=$(docker ps --filter "name=docker_app-php_1" --quiet)
+NEUTRON=$(neutron-project $PWD)
+
+
+if [ ! -z "${DOCKER_SERVICE}" ] && [ -f "${NEUTRON}/docker/docker-compose.yml" ]; then
+    docker run --rm --interactive --tty \
+        --volume $PWD:/usr/share/nginx/html \
+        --volume $NEUTRON/current:/packages \
+        --workdir /usr/share/nginx/html \
+        --network docker \
+        docker_app-php \
+        php $@
+else
+    docker run --rm --interactive --tty \
+        --volume $PWD:/usr/share/nginx/html \
+        --workdir /usr/share/nginx/html \
+        php \
+        php $@
+fi

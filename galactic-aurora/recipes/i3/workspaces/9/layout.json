@@ -1,26 +1,5 @@
 // vim:ts=4:sw=4:et
 {
-    "border": "pixel",
-    "current_border_width": 0,
-    "floating": "auto_off",
-    "geometry": {
-       "height": 2030,
-       "width": 1860,
-       "x": 1940,
-       "y": 40
-    },
-    "name": "ElectronMail",
-    "percent": 0.5,
-    "swallows": [
-       {
-           "class": "^electron\\-mail$",
-           "instance": "^electron\\-mail$"
-       }
-    ],
-    "type": "con"
-}
-
-{
     // splitv split container with 2 children
     "border": "pixel",
     "floating": "auto_off",
@@ -81,3 +60,23 @@
     ]
 }
 
+{
+    "border": "pixel",
+    "current_border_width": 0,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 2030,
+       "width": 1860,
+       "x": 1940,
+       "y": 40
+    },
+    "name": "ElectronMail",
+    "percent": 0.5,
+    "swallows": [
+       {
+           "class": "^electron\\-mail$",
+           "instance": "^electron\\-mail$"
+       }
+    ],
+    "type": "con"
+}

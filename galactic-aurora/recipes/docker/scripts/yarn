@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+docker run --rm --interactive --tty \
+    --user 'node' \
+    --volume $PWD:/app \
+    --workdir /app \
+    node:8-jessie \
+    yarn $@

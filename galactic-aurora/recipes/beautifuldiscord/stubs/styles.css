@@ -6,7 +6,7 @@
     --background-mobile-primary: $THEME_BACKGROUND;
 
     /* Chat background */
-    --background-primary: $THEME_BACKGROUND_DARK;
+    --background-primary: $THEME_BACKGROUND_ALT;
 
     /* Sidebar background */
     --background-secondary: $THEME_BACKGROUND;
@@ -26,12 +26,12 @@
 
 /* Friends list */
 .theme-dark #app-mount div[class*="base-"] > div[class^="content-"] > div[class*="container-"] {
-    background-color: $THEME_BACKGROUND_DARK;
+    background-color: $THEME_BACKGROUND_ALT;
 }
 
 /* Video call wrapper */
 .theme-dark #app-mount div[class*="base-"] div[class*="chat-"] > div[class*="wrapper-"] {
-    background-color: $THEME_BACKGROUND_DARK;
+    background-color: $THEME_BACKGROUND_ALT;
 }
 
 /* Video call individual people */

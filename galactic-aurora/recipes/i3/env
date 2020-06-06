@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-export MONITOR_PRIMARY="DisplayPort-0"
-export MONITOR_SECONDARY="DisplayPort-2"

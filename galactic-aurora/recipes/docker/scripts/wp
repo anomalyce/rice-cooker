@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+NEUTRON=$(neutron-project $PWD)
+
+if [[ -f "$NEUTRON/docker/docker-compose.yml" ]]; then
+    docker run --rm --interactive --tty \
+        --volume $NEUTRON/current:/var/www/html \
+        --workdir /var/www/html \
+        --network docker \
+        wordpress:cli \
+        $@
+else
+    docker run --rm --interactive --tty \
+        --volume $PWD:/var/www/html \
+        --workdir /var/www/html \
+        --network docker \
+        wordpress:cli \
+        $@
+fi

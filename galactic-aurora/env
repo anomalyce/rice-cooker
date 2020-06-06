@@ -5,6 +5,10 @@ export THEME_TITLE="Galactic-Aurora"
 export THEME_IDENTIFIER="galacticaurora"
 export THEME_UUID=`uuidgen -t`
 
+# Configuration
+export MONITOR_PRIMARY="DisplayPort-0"
+export MONITOR_SECONDARY="DisplayPort-2"
+
 # Unique colours
 export COLOR_TRANSPARENT="#00ffffff"
 
@@ -42,7 +46,8 @@ export THEME_BACKGROUND_LIGHTEST="#586072"
 export THEME_BACKGROUND_LIGHTER="#383f4f"
 export THEME_BACKGROUND_LIGHT="#242935" # Secondary
 export THEME_BACKGROUND="#1e222c" # Primary
-export THEME_BACKGROUND_DARK="#14161c" # Secondary
+export THEME_BACKGROUND_ALT="#181c24"
+export THEME_BACKGROUND_DARK="#14161c" # Secondary (Old = #181c24)
 export THEME_BACKGROUND_DARKER="#12151c"
 export THEME_BACKGROUND_DARKEST="#0b0d11"
 

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+RECIPE_CONFIG_DIR="${HOME}/.config/Typora"
+RECIPE_THEMES_DIR="${RECIPE_CONFIG_DIR}/themes"

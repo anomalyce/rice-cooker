@@ -39,7 +39,10 @@ elements = {
     },
     {
         kind = 'bar_graph',
+        -- AMD v
         conky_value = "exec cat /sys/class/drm/card0/device/gpu_busy_percent",
+        -- NVIDIA v
+        -- conky_value = "nvidia-smi --format=csv,noheader --query-gpu=utilization.gpu | awk -F'[^0-9]*' '{ print $1 }'",
         from = { x = 1320, y = 25 },
         to = { x = 1620, y = 25 },
         background_thickness = 24,

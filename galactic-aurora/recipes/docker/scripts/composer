@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+NEUTRON=$(neutron-project $PWD)
+
+if [[ -f "$NEUTRON/docker/docker-compose.yml" ]]; then
+    docker run --rm --interactive --tty \
+        --user $(id -u):$(id -g) \
+        --volume $PWD:/app \
+        --volume $NEUTRON/current:/packages \
+        --volume $NEUTRON/docker/composer:/tmp \
+        -e "COMPOSER_HOME=/tmp" \
+        composer \
+        composer $@
+else
+    docker run --rm --interactive --tty \
+        --user $(id -u):$(id -g) \
+        --volume $PWD:/app \
+        -e "COMPOSER_HOME=/tmp" \
+        composer \
+        composer $@
+fi

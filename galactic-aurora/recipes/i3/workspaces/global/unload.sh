@@ -4,6 +4,6 @@
 pkill dunst
 
 # Compton
-pkill compton
+pkill picom
 
 exit 0

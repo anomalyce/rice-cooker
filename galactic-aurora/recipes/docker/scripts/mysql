@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+NEUTRON=$(neutron-project $PWD)
+
+if [[ -f "$NEUTRON/docker/docker-compose.yml" ]]; then
+    docker run --rm --interactive --tty \
+        --volume $NEUTRON/docker/mysql/data:/var/lib/mysql \
+        --network docker \
+        -e "MYSQL_ROOT_PASSWORD=root" \
+        mariadb \
+        mysql \
+        -hdocker_app-mysql_1 \
+        -uroot \
+        -proot \
+        current
+else
+    docker run --rm --interactive --tty \
+        --volume /tmp/mysqldata:/var/lib/mysql \
+        --network docker \
+        -e "MYSQL_ROOT_PASSWORD=root" \
+        mariadb \
+        mysql \
+        -hdocker_app-mysql_1 \
+        -uroot \
+        -proot \
+        current
+fi
