@@ -9,8 +9,8 @@ i3-msg --quiet "exec --no-startup-id nohup discord --disable-seccomp-filter-sand
 # Ferdi
 i3-msg --quiet "exec --no-startup-id nohup ferdi >/dev/null 2>&1 &"
 
-# Riot
-i3-msg --quiet "exec --no-startup-id nohup riot-desktop >/dev/null 2>&1 &"
+# Element/Riot
+i3-msg --quiet "exec --no-startup-id nohup element-desktop >/dev/null 2>&1 &"
 
 # YouTube Firefox
 i3-msg --quiet "exec --no-startup-id nohup firefoxyoutube >/dev/null 2>&1 &"
