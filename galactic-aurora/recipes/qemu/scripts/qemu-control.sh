@@ -87,13 +87,37 @@ function log_to_polybar {
 }
 
 #
+# Send a notification.
+#
+function send_notification {
+    local MESSAGE="${1}"
+    local TYPE="${2}"
+    local WAIT="${3:-1}"
+
+    sleep "${WAIT}"
+
+    if [[ ! -z "${MESSAGE}" && "${MESSAGE}" != "" ]]; then
+        if [[ ! -z "${TYPE}" && "${TYPE}" != "" ]]; then
+            MESSAGE="${MESSAGE} (${TYPE})"
+        fi
+
+        # Convert <tag> to <b>tag</b> as notify-send doesn't really like angle brackets
+        MESSAGE=$(echo "$MESSAGE" | sed 's/</~~/g; s/>/<\/b>/g; s/~~/<b>/g')
+    
+        local ICON="${SCRIPTPATH}/assets/${VM}.png"
+
+        /usr/bin/notify-send --urgency=low --expire-time=5000 --icon="${ICON}" "${VM}" "${MESSAGE}"
+    fi
+}
+
+#
 # Write an action message.
 #
 function log_action {
     local MESSAGE="${1}"
     local COLOUR="${2:-${NORMAL}}"
 
-    log_to_polybar "${MESSAGE}" "action"
+    send_notification "${MESSAGE}" "action"
 
     echo -e "${COLOUR}${MESSAGE}${RESET}"
 }
@@ -105,7 +129,7 @@ function log_info {
     local MESSAGE="${1}"
     local COLOUR="${2:-${INFO}}"
 
-    log_to_polybar "${MESSAGE}" "info"
+    send_notification "${MESSAGE}" "info"
 
     echo -e "  └ ${COLOUR}${MESSAGE}${RESET}"
 }
@@ -117,7 +141,7 @@ function log_warning {
     local MESSAGE="${1}"
     local COLOUR="${2:-${WARNING}}"
 
-    log_to_polybar "${MESSAGE}" "warning"
+    send_notification "${MESSAGE}" "warning"
 
     echo -e "  └ ${COLOUR}${MESSAGE}${RESET}"
 }
@@ -129,7 +153,7 @@ function log_error {
     local MESSAGE="${1}"
     local COLOUR="${2:-${ERROR}}"
 
-    log_to_polybar "${MESSAGE}" "error"
+    send_notification "${MESSAGE}" "error"
 
     echo -e "${COLOUR}${MESSAGE}${RESET}"
 }
@@ -141,7 +165,7 @@ function log_success {
     local MESSAGE="${1}"
     local COLOUR="${2:-${SUCCESS}}"
 
-    log_to_polybar "${MESSAGE}" "success"
+    send_notification "${MESSAGE}" "success"
 
     echo -e "  └ ${COLOUR}${MESSAGE}${RESET}"
 }
@@ -298,7 +322,7 @@ function boot/monitor {
 
     start_process "@virsh"
     start_process "scream"
-    # start_process "barrier"
+    start_process "barrier"
 }
 
 #
@@ -307,7 +331,7 @@ function boot/monitor {
 function shutdown/monitor {
     stop_process "@virsh"
     stop_process "scream"
-    # stop_process "barrier"
+    stop_process "barrier"
 
     remove_hook "started/begin/20_switch_displays.sh"
     remove_hook "stopped/end/10_switch_displays.sh"
@@ -378,7 +402,8 @@ function process/lookingglass {
 # Scream process.
 #
 function process/scream {
-    echo "/usr/bin/scream -o pulse -i libvirt0"
+    echo "/usr/bin/scream -i libvirt0 -p 4010 -o pulse"
+    # echo "/usr/bin/scream -o pulse -i libvirt0"
 }
 
 #
@@ -399,6 +424,9 @@ ACTION="${2}"
 FALLBACK_TYPE="$(get_cache_file_contents "state")"
 TYPE=$([ ! -z "${3}" ] && echo "${3}" || echo "${FALLBACK_TYPE}")
 COMMAND="${ACTION}/${TYPE}"
+
+send_notification "Lorem ipsum dolor sit amet, consectetur <b>adipiscing</b> elit." "test"
+exit 0
 
 # Exit out early in case we can't detect the action type.
 if [ -z "${TYPE}" ]; then
@@ -449,6 +477,6 @@ fi
 
 log_action "Successfully ran action <${COMMAND}>!" "${SUCCESS}"
 
-log_to_polybar "" "" 5
+send_notification "" "" 5
 
 exit 0

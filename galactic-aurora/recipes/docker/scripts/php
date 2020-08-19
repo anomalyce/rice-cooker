@@ -6,6 +6,7 @@ NEUTRON=$(neutron-project $PWD)
 
 if [ ! -z "${DOCKER_SERVICE}" ] && [ -f "${NEUTRON}/docker/docker-compose.yml" ]; then
     docker run --rm --interactive --tty \
+        --user "$(id -u):$(id -g)" \
         --volume $PWD:/usr/share/nginx/html \
         --volume $NEUTRON/current:/packages \
         --workdir /usr/share/nginx/html \
@@ -14,6 +15,7 @@ if [ ! -z "${DOCKER_SERVICE}" ] && [ -f "${NEUTRON}/docker/docker-compose.yml" ]
         php $@
 else
     docker run --rm --interactive --tty \
+        --user "$(id -u):$(id -g)" \
         --volume $PWD:/usr/share/nginx/html \
         --workdir /usr/share/nginx/html \
         php \

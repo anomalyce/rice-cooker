@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-docker logs -f --details docker_app-php_1
+if ! [ -x "$(command -v grc)" ]; then
+    docker logs -f --details docker_app-php_1
+else
+    grc docker logs -f --details docker_app-php_1
+fi

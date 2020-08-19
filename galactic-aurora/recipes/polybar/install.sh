@@ -25,6 +25,11 @@ rice_cooker_substitute_env "${RECIPE_DIST_DIR}/modules/vpn/vpn.ini"
 echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/modules/vpn/vpn.ini"
 chmod +x "${RECIPE_DIST_DIR}/modules/vpn/mullvad.sh"
 
+rice_cooker_debug "Publishing Do Not Disturb module"
+cp -r "${RECIPE_DIR}/stubs/modules/donotdisturb" "${RECIPE_DIST_DIR}/modules/donotdisturb"
+rice_cooker_substitute_env "${RECIPE_DIST_DIR}/modules/donotdisturb/donotdisturb.ini"
+echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/modules/donotdisturb/donotdisturb.ini"
+
 rice_cooker_debug "Publishing System module"
 cp -r "${RECIPE_DIR}/stubs/modules/system" "${RECIPE_DIST_DIR}/modules/system"
 rice_cooker_substitute_env "${RECIPE_DIST_DIR}/modules/system/system.ini"

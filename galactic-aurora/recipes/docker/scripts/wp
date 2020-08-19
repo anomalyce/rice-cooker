@@ -4,6 +4,7 @@ NEUTRON=$(neutron-project $PWD)
 
 if [[ -f "$NEUTRON/docker/docker-compose.yml" ]]; then
     docker run --rm --interactive --tty \
+        --user "$(id -u):$(id -g)" \
         --volume $NEUTRON/current:/var/www/html \
         --workdir /var/www/html \
         --network docker \
@@ -11,6 +12,7 @@ if [[ -f "$NEUTRON/docker/docker-compose.yml" ]]; then
         $@
 else
     docker run --rm --interactive --tty \
+        --user "$(id -u):$(id -g)" \
         --volume $PWD:/var/www/html \
         --workdir /var/www/html \
         --network docker \
