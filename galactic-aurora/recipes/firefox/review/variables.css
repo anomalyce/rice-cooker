@@ -1,0 +1,15 @@
+:root {
+    --dark_color1: $THEME_BACKGROUND;
+    --dark_color2: $THEME_BACKGROUND_ALT;
+    --dark_color3: $THEME_BACKGROUND_DARK;
+    --dark_color4: $THEME_BACKGROUND_LIGHT;
+
+    --light_color1: $THEME_FOREGROUND;
+    --light_color2: $THEME_FOREGROUND_ALT;
+    --light_color3: $THEME_FOREGROUND_DARK;
+    --light_color4: $THEME_FOREGROUND_LIGHT;
+
+    --word_color1: $THEME_FOREGROUND;
+    --word_color2: $THEME_FOREGROUND_LIGHT;
+    --word_color3: $THEME_FOREGROUND_LIGHTER;
+}

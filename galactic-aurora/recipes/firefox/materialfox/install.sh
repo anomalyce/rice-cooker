@@ -22,7 +22,7 @@ rice_cooker_debug "Migrating out of cache"
 cp -r ${RECIPE_CACHE_DIR}/chrome ${RECIPE_DIST_DIR}/materialfox
 
 rice_cooker_debug "Importing the new content CSS"
-rice_cooker_substitute_env "${RECIPE_DIR}/materialfox/content/newtab.css"
+rice_cooker_substitute_env "${RECIPE_DIR}/global/content/newtab.css"
 echo "${RICE_COOKER_OUTPUT}" >> "${RECIPE_DIST_DIR}/materialfox/userContent.css"
 
 rice_cooker_debug "Replacing darkmode variables"
@@ -30,10 +30,10 @@ rice_cooker_substitute_env "${RECIPE_DIR}/materialfox/chrome/variables.css"
 echo "${RICE_COOKER_OUTPUT}" > ${RECIPE_DIST_DIR}/materialfox/global/rice-cooker.css
 
 rice_cooker_debug "Appending the stop-white-flash CSS"
-cat "${RECIPE_DIR}/materialfox/chrome/whiteflash.css" >> ${RECIPE_DIST_DIR}/materialfox/global/rice-cooker.css
+cat "${RECIPE_DIR}/global/chrome/whiteflash.css" >> ${RECIPE_DIST_DIR}/materialfox/global/rice-cooker.css
 
 rice_cooker_debug "Appending the indicators CSS"
-cat "${RECIPE_DIR}/stubs/indicators.css" >> ${RECIPE_DIST_DIR}/materialfox/global/rice-cooker.css
+cat "${RECIPE_DIR}/global/chrome/indicators.css" >> ${RECIPE_DIST_DIR}/materialfox/global/rice-cooker.css
 
 
 
@@ -41,8 +41,7 @@ rice_cooker_debug "Duplicating materialfox for twitter"
 cp -r ${RECIPE_DIST_DIR}/materialfox ${RECIPE_DIST_DIR}/materialfox-twitter
 
 rice_cooker_debug "Appending the tab-bar CSS to twitter"
-cat "${RECIPE_DIR}/materialfox/chrome/tabbar.css" >> ${RECIPE_DIST_DIR}/materialfox-twitter/global/rice-cooker.css
-
+cat "${RECIPE_DIR}/global/chrome/tabbar.css" >> ${RECIPE_DIST_DIR}/materialfox-twitter/global/rice-cooker.css
 
 
 declare -a userChromes=(

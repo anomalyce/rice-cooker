@@ -5,6 +5,7 @@ if ! [ -x "$(command -v firefox)" ]; then
 fi
 
 # ( source ${RECIPE_DIR}/nord/install.sh )
-( source ${RECIPE_DIR}/materialfox/install.sh )
+# ( source ${RECIPE_DIR}/materialfox/install.sh )
+( source ${RECIPE_DIR}/review/install.sh )
 
 exit 0
