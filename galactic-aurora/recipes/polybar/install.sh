@@ -70,10 +70,11 @@ cp -r "${RECIPE_DIR}/stubs/modules/applications" "${RECIPE_DIST_DIR}/modules/app
 rice_cooker_substitute_env "${RECIPE_DIST_DIR}/modules/applications/applications.ini"
 echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/modules/applications/applications.ini"
 
-rice_cooker_debug "Publishing Output Log module"
-cp -r "${RECIPE_DIR}/stubs/modules/outputlog" "${RECIPE_DIST_DIR}/modules/outputlog"
-rice_cooker_substitute_env "${RECIPE_DIST_DIR}/modules/outputlog/outputlog.ini"
-echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/modules/outputlog/outputlog.ini"
+rice_cooker_debug "Publishing pacman module"
+cp -r "${RECIPE_DIR}/stubs/modules/pacman" "${RECIPE_DIST_DIR}/modules/pacman"
+rice_cooker_substitute_env "${RECIPE_DIST_DIR}/modules/pacman/pacman.ini"
+echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/modules/pacman/pacman.ini"
+chmod +x "${RECIPE_DIST_DIR}/modules/pacman/checkupdates.sh"
 
 rice_cooker_debug "Re-launching Polybar"
 source "${RECIPE_DIST_DIR}/polybar.sh"
