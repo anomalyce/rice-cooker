@@ -10,7 +10,7 @@ mkdir -p ${RECIPE_DIST_DIR}
 cp ${RECIPE_CACHE_DIR}/Nord.sublime-color-scheme ${RECIPE_DIST_DIR}/Nord.sublime-color-scheme
 
 rice_cooker_debug "Replacing the Nord colour scheme's background colour"
-sed -i -r "s/\"nord0\": \"#.{3,6}\"/\"nord0\": \"${THEME_BACKGROUND_DARK}\"/g" ${RECIPE_DIST_DIR}/Nord.sublime-color-scheme
+sed -i -r "s/\"nord0\": \"#.{3,6}\"/\"nord0\": \"${THEME_BACKGROUND_ALT}\"/g" ${RECIPE_DIST_DIR}/Nord.sublime-color-scheme
 
 rice_cooker_debug "Creating symlinks for the Nord colour scheme"
 ln -sf ${RECIPE_DIST_DIR}/Nord.sublime-color-scheme ${HOME}/.config/sublime-text-3/Packages/User/Nord.sublime-color-scheme
