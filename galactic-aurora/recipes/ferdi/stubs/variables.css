@@ -1,8 +1,15 @@
+:root:not(#z), .dark:not(#z) {
+    --compose-input-background: $THEME_BACKGROUND !important;
+    --compose-input-background-focused: $THEME_BACKGROUND !important;
+    --compose-input-border: $THEME_BACKGROUND !important;
+    --compose-input-border-focused: $THEME_BACKGROUND !important;
+    --rich-text-panel-background: $THEME_BACKGROUND_ALT !important;
+    --search-input-background: $THEME_BACKGROUND_LIGHT !important;
 
-:root {
-    --darken: $THEME_BACKGROUND;
-    --darker: $THEME_BACKGROUND_DARK;
-    --dark: $THEME_BACKGROUND_DARK;
-    --bg-opacity: 0;
-    --chat-bg-o: 0.1;
+    --bg-0:  $THEME_BACKGROUND !important;
+    --bg-1:  $THEME_BACKGROUND_ALT !important;
+    --bg-2:  $THEME_BACKGROUND !important;
+    --bg-3:  $THEME_BACKGROUND !important;
+    --bg-4:  $THEME_BACKGROUND_LIGHT !important;
+    --bg-5:  $THEME_BACKGROUND_LIGHT !important;
 }

@@ -12,23 +12,12 @@ git clone git@github.com:vednoc/dark-whatsapp.git ${RECIPE_CACHE_DIR}
 rice_cooker_debug "Attempting to switch to the develop branch"
 cd ${RECIPE_CACHE_DIR} && git checkout develop
 
-# rice_cooker_debug "Converting stylus to regular CSS"
-# ${RECIPE_DIR}/scripts/convert-stylus-to-css.sh "${RECIPE_CACHE_DIR}"
+rice_cooker_debug "Converting theme userstyle"
+rice_cooker_substitute_env "${RECIPE_DIR}/stubs/userstyle.styl"
+echo "${RICE_COOKER_OUTPUT}" >> "${RECIPE_CACHE_DIR}/rice-cooker.styl"
 
-# exit 0
-
-rice_cooker_debug "Replacing :root variables"
-rice_cooker_substitute_env "${RECIPE_DIR}/stubs/variables.css"
-SELECTOR="  @supports (-moz-user-select: none) {
-    :root * {
-      scrollbar-width: thin;
-    }
-  }"
-gawk \
-    -v old="${SELECTOR}" \
-    -v new="\n${RICE_COOKER_OUTPUT}\n\n${SELECTOR}" \
-    '{ gsub(old, new) }; { print }' \
-    ${RECIPE_CACHE_DIR}/wa.user.css &> /dev/null
+rice_cooker_debug "Converting stylus to regular CSS"
+${RECIPE_DIR}/scripts/convert-stylus-to-css.sh "${RECIPE_CACHE_DIR}"
 
 rice_cooker_debug "Granting execute permission to shell script"
 chmod +x ${RECIPE_CACHE_DIR}/whatsapp.sh
@@ -40,6 +29,10 @@ ${RECIPE_CACHE_DIR}/whatsapp.sh
 
 rice_cooker_debug "Applying custom CSS from styles.css"
 cat ${RECIPE_DIR}/stubs/styles.css >> ${RECIPE_CACHE_DIR}/darkmode.css
+
+rice_cooker_debug "Applying custom variables"
+rice_cooker_substitute_env "${RECIPE_DIR}/stubs/variables.css"
+perl -pi -e "s/html \> body \{/${RICE_COOKER_OUTPUT}\nhtml \> body \{/s" "${RECIPE_CACHE_DIR}/darkmode.css"
 
 rice_cooker_debug "Migrating out of cache"
 mkdir -p ${RECIPE_DIST_DIR}
