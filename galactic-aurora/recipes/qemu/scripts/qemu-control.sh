@@ -425,9 +425,6 @@ FALLBACK_TYPE="$(get_cache_file_contents "state")"
 TYPE=$([ ! -z "${3}" ] && echo "${3}" || echo "${FALLBACK_TYPE}")
 COMMAND="${ACTION}/${TYPE}"
 
-send_notification "Lorem ipsum dolor sit amet, consectetur <b>adipiscing</b> elit." "test"
-exit 0
-
 # Exit out early in case we can't detect the action type.
 if [ -z "${TYPE}" ]; then
     log_error "Cannot identify action type, exiting..."
