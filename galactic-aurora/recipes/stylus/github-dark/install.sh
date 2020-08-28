@@ -23,6 +23,9 @@ rice_cooker_debug "Appending custom CSS"
 rice_cooker_substitute_env "${RECIPE_DIR}/github-dark/stubs/style.css"
 echo "${RICE_COOKER_OUTPUT}" >> ${RECIPE_CACHE_DIR}/github-dark.user.css
 
+rice_cooker_debug "Strip @updateURL"
+sed -i '/\@updateURL/d' ${RECIPE_CACHE_DIR}/github-dark.user.css
+
 rice_cooker_debug "Installing userstyle"
 cd ${RECIPE_CACHE_DIR}
 make install
