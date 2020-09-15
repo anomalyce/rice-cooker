@@ -402,7 +402,8 @@ function process/lookingglass {
 # Scream process.
 #
 function process/scream {
-    echo "/usr/bin/scream -i libvirt0 -p 4010 -o pulse"
+    echo "/usr/bin/scream -u -i libvirt0 -p 4011 -o pulse"
+    # echo "/usr/bin/scream -i libvirt0 -p 4010 -o pulse"
     # echo "/usr/bin/scream -o pulse -i libvirt0"
 }
 
