@@ -25,7 +25,7 @@ chmod +x ${RECIPE_CACHE_DIR}/whatsapp.sh
 cd ${RECIPE_CACHE_DIR}
 
 rice_cooker_debug "Running shell script"
-${RECIPE_CACHE_DIR}/whatsapp.sh
+${RECIPE_CACHE_DIR}/whatsapp.sh -f
 
 rice_cooker_debug "Applying custom CSS from styles.css"
 cat ${RECIPE_DIR}/stubs/styles.css >> ${RECIPE_CACHE_DIR}/darkmode.css

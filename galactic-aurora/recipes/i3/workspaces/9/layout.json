@@ -8,34 +8,75 @@
     "type": "con",
     "nodes": [
         {
-            // splith split container with 1 children
             "border": "pixel",
+            "current_border_width": 0,
             "floating": "auto_off",
-            "layout": "splith",
+            "geometry": {
+               "height": 1059,
+               "width": 1899,
+               "x": 14,
+               "y": 1087
+            },
+            "name": "Toggl Desktop",
+            "percent": 0.3,
+            "swallows": [
+               {
+                  "class": "^Toggl\\ Desktop$",
+                  "instance": "^TogglDesktop$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 996,
+               "width": 1902,
+               "x": 1926,
+               "y": 78
+            },
+            "name": "Todoist",
+            "percent": 0.7,
+            "swallows": [
+               {
+                  "class": "^Todoist$",
+                  "instance": "^todoist$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    // tabbed split container with 2 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "tabbed",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 2030,
+               "width": 1860,
+               "x": 1940,
+               "y": 40
+            },
+            "name": "ElectronMail",
             "percent": 0.5,
-            "type": "con",
-            "nodes": [
+            "swallows": [
                 {
-                    "border": "pixel",
-                    "current_border_width": 0,
-                    "floating": "auto_off",
-                    "geometry": {
-                       "height": 2030,
-                       "width": 3760,
-                       "x": 40,
-                       "y": 40
-                    },
-                    "name": "Todoist",
-                    "percent": 1,
-                    "swallows": [
-                       {
-                           "class": "^Todoist$",
-                           "instance": "^todoist$"
-                       }
-                    ],
-                    "type": "con"
+                    "class": "^electron\\-mail$",
+                    "instance": "^electron\\-mail$"
                 }
-            ]
+            ],
+            "type": "con"
         },
         {
             "border": "pixel",
@@ -58,25 +99,4 @@
             "type": "con"
         }
     ]
-}
-
-{
-    "border": "pixel",
-    "current_border_width": 0,
-    "floating": "auto_off",
-    "geometry": {
-       "height": 2030,
-       "width": 1860,
-       "x": 1940,
-       "y": 40
-    },
-    "name": "ElectronMail",
-    "percent": 0.5,
-    "swallows": [
-       {
-           "class": "^electron\\-mail$",
-           "instance": "^electron\\-mail$"
-       }
-    ],
-    "type": "con"
 }

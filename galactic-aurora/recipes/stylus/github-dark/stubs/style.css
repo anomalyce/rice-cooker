@@ -15,6 +15,12 @@
     background: $THEME_BACKGROUND_LIGHT !important;
   }
 
+  /* Issue Search Field */
+  .subnav-search-context + .subnav-search .subnav-search-input {
+    background-color: $THEME_BACKGROUND_LIGHT !important;
+    border-color: $THEME_BACKGROUND_LIGHT !important;
+  }
+
   /* Header */
   .Header {
     background-color: $THEME_BACKGROUND;
