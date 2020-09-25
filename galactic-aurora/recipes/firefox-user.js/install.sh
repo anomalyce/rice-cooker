@@ -3,7 +3,8 @@
 rice_cooker_recipe_cache_dir
 
 rice_cooker_debug "Downloading user.js"
-wget -O ${RECIPE_CACHE_DIR}/user.js https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/user.js
+# wget -O ${RECIPE_CACHE_DIR}/user.js https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/user.js
+wget -O ${RECIPE_CACHE_DIR}/user.js https://raw.githubusercontent.com/arkenfox/user.js/master/user.js
 
 mkdir -p ${RECIPE_DIST_DIR}
 
