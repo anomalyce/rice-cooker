@@ -95,6 +95,26 @@
                         "x": 4876,
                         "y": 40
                     },
+                    "name": "Slack",
+                    "percent": 0.33,
+                    "swallows": [
+                        {
+                            "class": "^Slack$",
+                            "title": "^Slack$",
+                            "window_role": "^browser\\-window$"
+                        }
+                    ]
+                },
+                {
+                    "border": "pixel",
+                    "current_border_width": 0,
+                    "floating": "auto_off",
+                    "geometry": {
+                        "height": 1020,
+                        "width": 1846,
+                        "x": 4876,
+                        "y": 40
+                    },
                     "name": "Element",
                     "percent": 0.33,
                     "swallows": [

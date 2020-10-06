@@ -9,7 +9,10 @@ pkill Discord
 # Ferdi
 pkill ferdi
 
-# Riot
+# Slack
+pkill slack
+
+# Element/Riot
 pkill riot-desktop
 
 # YouTube Firefox

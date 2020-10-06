@@ -9,6 +9,9 @@ i3-msg --quiet "exec --no-startup-id nohup discord --disable-seccomp-filter-sand
 # Ferdi
 i3-msg --quiet "exec --no-startup-id nohup ferdi >/dev/null 2>&1 &"
 
+# Slack
+i3-msg --quiet "exec --no-startup-id nohup slack >/dev/null 2>&1 &"
+
 # Element/Riot
 i3-msg --quiet "exec --no-startup-id nohup element-desktop >/dev/null 2>&1 &"
 
