@@ -1,6 +1,16 @@
 
 /* Move sidebar to the right */
+/*
 div.app > div:nth-child(3) {
     flex: 15% !important;
     order: 2 !important;
 }
+*/
+
+/* Remove min height to prevent scrollbars */
+@media screen and (max-height: 648px) {
+    div#app > div.app-wrapper-web > div.two {
+        min-height: auto !important;
+    }
+}
+q
