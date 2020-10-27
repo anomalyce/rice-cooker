@@ -1,0 +1,10 @@
+.bookmark-item > .toolbarbutton-icon {
+    filter: brightness(100%) grayscale(100%) invert(1) opacity(50%);
+    transition: filter .3s, opacity .3s;
+    opacity: .5;
+}
+
+.bookmark-item:hover > .toolbarbutton-icon {
+    filter: none;
+    opacity: 1;
+}

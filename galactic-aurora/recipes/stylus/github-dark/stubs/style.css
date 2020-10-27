@@ -5,6 +5,10 @@
     --ghd-bg-color: $THEME_BACKGROUND;
     --ghd-code-background: $THEME_BACKGROUND_ALT;
     --ghd-code-color: $THEME_FOREGROUND_DARK;
+    --color-previewable-comment-form-bg: $THEME_BACKGROUND_ALT;
+    --color-markdown-table-border: $THEME_BACKGROUND_DARK;
+    --color-underlinenav-text-active: $THEME_FOREGROUND;
+    --color-underlinenav-counter-text: $THEME_FOREGROUND_LIGHT;
   }
 }
 
@@ -23,7 +27,7 @@
 
   /* Header */
   .Header {
-    background-color: $THEME_BACKGROUND;
+    background-color: $THEME_BACKGROUND !important;
   }
   @media (min-width: 1013px) {
     .Header, .Header-old {
@@ -71,6 +75,16 @@
     .Box--responsive {
       border-color: $THEME_BACKGROUND;
     }
+  }
+
+  /* */
+  .blame-hunk .blame-commit, 
+  .notifications-list-item.notification-unread {
+    background-color: $THEME_BACKGROUND_LIGHT !important;
+  }
+
+  .notifications-list .list-style-none.bg-gray {
+    background-color: $THEME_BACKGROUND !important;
   }
 
   /* Buttons */
@@ -199,6 +213,16 @@
   }
   .border-gray-dark {
     border-color: transparent !important;
+  }
+
+  /* Markdown Table */
+  .markdown-body table tr {
+    background-color: $THEME_BACKGROUND_LIGHT !important;
+  }
+
+  .markdown-body table td, .markdown-body table th {
+    border-color: var(--color-markdown-table-border) !important;
+    border-width: 2px !important;
   }
 
   /* Sidebar etc */

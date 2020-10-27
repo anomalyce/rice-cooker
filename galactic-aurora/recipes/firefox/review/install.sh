@@ -34,6 +34,10 @@ rice_cooker_debug "Appending the indicators CSS"
 rice_cooker_substitute_env "${RECIPE_DIR}/global/chrome/indicators.css"
 echo "${RICE_COOKER_OUTPUT}" >> ${RECIPE_DIST_DIR}/review/userChrome.css
 
+rice_cooker_debug "Appending the bookmarks bar CSS"
+rice_cooker_substitute_env "${RECIPE_DIR}/global/chrome/bookmarksbar.css"
+echo "${RICE_COOKER_OUTPUT}" >> ${RECIPE_DIST_DIR}/review/userChrome.css
+
 
 
 rice_cooker_debug "Duplicating review for twitter"
