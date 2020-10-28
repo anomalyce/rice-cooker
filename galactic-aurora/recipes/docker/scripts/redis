@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+docker run --rm --interactive --tty \
+    --network docker \
+    redis \
+    redis-cli \
+    -h docker_app-redis_1 \
+    $@
