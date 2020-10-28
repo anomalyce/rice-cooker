@@ -12,12 +12,12 @@ if [ ! -z "${DOCKER_SERVICE}" ] && [ -f "${NEUTRON}/docker/docker-compose.yml" ]
         --workdir /usr/share/nginx/html \
         --network docker \
         docker_app-php \
-        php $@
+        php -d memory_limit=-1 $@
 else
     docker run --rm --interactive --tty \
         --user "$(id -u):$(id -g)" \
         --volume $PWD:/usr/share/nginx/html \
         --workdir /usr/share/nginx/html \
         php \
-        php $@
+        php -d memory_limit=-1 $@
 fi
