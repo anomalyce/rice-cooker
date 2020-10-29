@@ -9,6 +9,7 @@
     --color-markdown-table-border: $THEME_BACKGROUND_DARK;
     --color-underlinenav-text-active: $THEME_FOREGROUND;
     --color-underlinenav-counter-text: $THEME_FOREGROUND_LIGHT;
+    --color-calendar-graph-day-bg: $THEME_BACKGROUND;
   }
 }
 
