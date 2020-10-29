@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+docker run --rm --interactive --tty \
+    --user "$(id -u):$(id -g)" \
+    --volume $PWD:/usr/share/nginx/html \
+    --workdir /usr/share/nginx/html \
+    php:8.0.0RC2-fpm \
+    php -d memory_limit=-1 $@
