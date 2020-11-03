@@ -24,6 +24,11 @@
     --background-modifier-selected: $THEME_BACKGROUND_LIGHT;
 }
 
+/* Avatar fallback */
+.avatar-1BDn8e {
+    background-color: $THEME_BACKGROUND_LIGHT;
+}
+
 /* Friends list */
 .theme-dark #app-mount div[class*="base-"] > div[class^="content-"] > div[class*="container-"] {
     background-color: $THEME_BACKGROUND_ALT;
