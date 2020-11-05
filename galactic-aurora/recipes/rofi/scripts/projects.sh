@@ -21,7 +21,8 @@ OPTIONS="\
 -no-lazy-grab \
 -monitor primary \
 -hide-scrollbar true \
--color-enabled true ${COLOURS}\
+-color-enabled true ${COLOURS} \
+-theme-str 'element-icon { size: 1.2em; }' \
 "
 
 COMMAND="rofi ${OPTIONS} <<< '$1'"

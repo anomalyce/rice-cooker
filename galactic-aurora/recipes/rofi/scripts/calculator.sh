@@ -22,7 +22,8 @@ OPTIONS="\
 -location 0 \
 -monitor primary \
 -hide-scrollbar true \
--color-enabled true ${COLOURS}\
+-color-enabled true ${COLOURS} \
+-theme-str 'element-icon { size: 1.2em; }' \
 "
 
 COMMAND="rofi ${OPTIONS}"

@@ -20,7 +20,8 @@ OPTIONS="\
 -columns 1 \
 -no-lazy-grab \
 -monitor primary \
--color-enabled true ${COLOURS}\
+-color-enabled true ${COLOURS} \
+-theme-str 'element-icon { size: 1.2em; }' \
 "
 
 COMMAND="rofi ${OPTIONS} <<< 'Log Out|Reboot|Shutdown'"

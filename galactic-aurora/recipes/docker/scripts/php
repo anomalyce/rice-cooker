@@ -8,7 +8,7 @@ if [ ! -z "${DOCKER_SERVICE}" ] && [ -f "${NEUTRON}/docker/docker-compose.yml" ]
     docker run --rm --interactive --tty \
         --user "$(id -u):$(id -g)" \
         --volume $PWD:/usr/share/nginx/html \
-        --volume $NEUTRON/current:/packages \
+        --volume $NEUTRON/packages:/packages \
         --workdir /usr/share/nginx/html \
         --network docker \
         docker_app-php \

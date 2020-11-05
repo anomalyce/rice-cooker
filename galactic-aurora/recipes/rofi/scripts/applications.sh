@@ -9,7 +9,7 @@ OPTIONS="\
 -show drun \
 -drun-display-format \" {name}\" \
 -bw 15 \
--lines 20 \
+-lines 15 \
 -padding 25 \
 -line-padding 15 \
 -width 30 \
@@ -22,7 +22,8 @@ OPTIONS="\
 -hide-scrollbar true \
 -show-icons \
 -icon-theme \"Papirus\" \
--color-enabled true ${COLOURS}\
+-color-enabled true ${COLOURS} \
+-theme-str 'element-icon { size: 1.2em; }' \
 "
 
 COMMAND="rofi ${OPTIONS}"
