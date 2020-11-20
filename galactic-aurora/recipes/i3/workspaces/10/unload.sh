@@ -10,7 +10,7 @@ pkill Discord
 pkill ferdi
 
 # Slack
-pkill slack
+#pkill slack
 
 # Element/Riot
 pkill riot-desktop
