@@ -5,6 +5,7 @@
 docker run --rm --interactive --tty \
     --user 'node' \
     --volume $PWD:/app \
+    --volume $HOME/.npx:/home/node/.npm-global \
     --workdir /app \
     globalnode:latest \
     npm $@
