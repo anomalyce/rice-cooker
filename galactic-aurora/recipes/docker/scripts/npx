@@ -2,6 +2,6 @@
 
 if [[ -f "./node_modules/.bin/$1" ]]; then
     ./node_modules/.bin/$@
-elif [[ -f "$HOME/.npx/node_modules/.bin/$1" ]]; then
-    $HOME/.npx/node_modules/.bin/$@
+elif [[ -f "$HOME/.npx/bin/$1" ]]; then
+    $HOME/.npx/bin/$@
 fi
