@@ -36,6 +36,11 @@
     }
   }
 
+  /* Remove background under images */
+  .markdown-body img {
+    background-color: transparent !important;
+  }
+
   /* Repository Header */
   .page-responsive .repohead, .page-responsive .pagehead,
   .repohead.bg-gray-light, .pagehead.bg-gray-light, main > .bg-gray-light {

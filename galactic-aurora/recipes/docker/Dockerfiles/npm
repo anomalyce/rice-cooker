@@ -1,0 +1,9 @@
+# docker build -t globalnode -f ./galactic-aurora/recipes/docker/Dockerfiles/npm ./galactic-aurora/recipes/docker
+FROM node:current-alpine
+
+ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
+ENV PATH=$PATH:/home/node/.npm-global/bin
+
+RUN deluser --remove-home node \
+  && addgroup -S node -g 985 \
+  && adduser -S -G node -u 1000 node
