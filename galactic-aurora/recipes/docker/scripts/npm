@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
+# docker build -t globalnode < ./Dockerfiles/npm
+
 docker run --rm --interactive --tty \
     --user 'node' \
     --volume $PWD:/app \
     --workdir /app \
-    node:current-alpine \
+    globalnode:latest \
     npm $@
