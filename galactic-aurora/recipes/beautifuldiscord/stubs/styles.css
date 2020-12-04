@@ -49,6 +49,13 @@
     box-shadow: inset 0 0 0 5px #43b581;
 }
 
+/* Disable mirrored webcam for myself */
+.media-engine-video[class^="mirror-"],
+.media-engine-video.mirror-1Z13AJ {
+    -webkit-transform: scaleX(1) !important;
+    transform: scaleX(1) !important;
+}
+
 /* Large Emojis */
 /*.emoji.jumboable {
     width: 1.375em !important;
