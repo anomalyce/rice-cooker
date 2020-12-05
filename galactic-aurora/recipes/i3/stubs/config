@@ -58,6 +58,16 @@ for_window [floating] move position center
 
 
 
+# v ------------------ Password Manager ------------------ v #
+
+for_window [class="KeeWeb"] floating toggle, resize set 50 ppt 60 ppt, move position center, move to workspace current
+
+bindsym @[[mod]]+Shift+p exec --no-startup-id nohup keeweb --force-device-scale-factor=2 >/dev/null 2>&1 &
+
+
+
+
+
 # v ------------------ Workspaces ------------------ v #
 
 # Workspace 1
@@ -117,7 +127,7 @@ assign [title="AlacrittyTodoList"] @[[ws10]]
 # v ------------------ Execution ------------------ v #
 
 # Screenlayout
-exec --no-startup-id @[[HOME]]/.local/share/rice-cooker/i3/scripts/screenlayout.sh
+exec --no-startup-id ${RECIPE_DIST_DIR}/scripts/screenlayout.sh
 
 # Wallpaper
 exec --no-startup-id @[[USERSCRIPTS]]/misc/i3wpd/i3wpd.py "--bg-scale" @[[HOME]]/Pictures/wallpapers/i3 .jpeg &
@@ -129,7 +139,7 @@ exec --no-startup-id @[[HOME]]/.local/share/rice-cooker/polybar/polybar.sh &
 exec --no-startup-id cd @[[HOME]]/.local/share/rice-cooker/conky && conky --quiet --config=@[[HOME]]/.local/share/rice-cooker/conky/conky.conf &
 
 # Workspaces
-exec --no-startup-id await-network "@[[HOME]]/.local/share/rice-cooker/i3/scripts/workspaces.sh"
+exec --no-startup-id await-network "${RECIPE_DIST_DIR}/scripts/workspaces.sh"
 
 # Mouse buttons
 exec --no-startup-id @[[USERSCRIPTS]]/misc/hardware/disable-mouse-buttons.sh &
@@ -179,6 +189,9 @@ bindsym @[[mod]]+Shift+c reload
 
 # Restart the window manager
 bindsym @[[mod]]+Shift+r restart
+
+# Reload the workspaces
+bindsym @[[mod]]+Shift+t await-network "${RECIPE_DIST_DIR}/scripts/workspaces.sh"
 
 
 
@@ -314,3 +327,4 @@ for_window [class="vlc"] title_format "  Video Player "
 for_window [class="(Subl3?|VSCodium)"] title_format "  Editor "
 for_window [class="electron-mail"] title_format "  Inbox "
 for_window [class="Bitwarden"] title_format "  Password Manager "
+for_window [class="KeeWeb"] title_format "  Password Manager "

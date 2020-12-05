@@ -7,7 +7,7 @@ pkill electron-mail
 pkill todoist
 
 # Toggl Desktop
-pkill TogglDesktop
+#pkill TogglDesktop
 
 # Bitwarden
 pkill bitwarden
