@@ -53,7 +53,7 @@ function rice_cooker_substitute_env {
     RICE_COOKER_OUTPUT=$(echo "${RICE_COOKER_OUTPUT}" | sed -r 's/\@\{/\$\{/g')
 
     # Use `@[[VAR]]` to prevent an existing variable to be replaced.
-    RICE_COOKER_OUTPUT=$(echo "${RICE_COOKER_OUTPUT}" | sed -r 's/\@\[\[(\w+)\]\]/\$\1/gi')
+    RICE_COOKER_OUTPUT=$(echo "${RICE_COOKER_OUTPUT}" | sed -r 's/\@\[\[(\w+)\]\]/\${\1}/gi')
 }
 
 #

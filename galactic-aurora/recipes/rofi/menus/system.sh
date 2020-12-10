@@ -10,7 +10,7 @@ OPTIONS="\
 -dmenu \
 -i \
 -bw 15 \
--lines 3 \
+-lines 4 \
 -padding 25 \
 -line-padding 18 \
 -width 20 \
@@ -24,10 +24,14 @@ OPTIONS="\
 -theme-str 'element-icon { size: 1.2em; }' \
 "
 
-COMMAND="rofi ${OPTIONS} <<< 'Log Out|Reboot|Shutdown'"
+COMMAND="rofi ${OPTIONS} <<< 'Lock|Log Out|Reboot|Shutdown'"
 SELECTION=$(echo ${COMMAND} | sh)
 
 case "${SELECTION}" in
+    "Lock")
+        ${SELF_DIR}/lockscreen/lock.sh
+        ;;
+
     "Log Out")
         i3-msg exit
         ;;

@@ -4,6 +4,7 @@
 export THEME_TITLE="Galactic-Aurora"
 export THEME_IDENTIFIER="galacticaurora"
 export THEME_UUID=`uuidgen -t`
+export THEME_WALLPAPER="${HOME}/Pictures/wallpapers/women-white-long-hairs-dark-minimalism-5a.jpg"
 
 # Configuration
 export MONITOR_PRIMARY="DisplayPort-0"
