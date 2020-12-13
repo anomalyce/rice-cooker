@@ -395,7 +395,7 @@ function process/virsh {
 # Looking Glass process.
 #
 function process/lookingglass {
-    echo "looking-glass-client -K 120 -m 281 -g OpenGL -o input:grabKeyboard=0 -o win:size=1920x1080 -o opengl:vsync=1 >/dev/null 2>&1"
+    echo "looking-glass-client -K 120 -m 281 -g OpenGL -o input:grabKeyboard=0 input:grabKeyboardOnFocus=no -o win:size=1920x1080 -o opengl:vsync=1 >/dev/null 2>&1"
 }
 
 #
