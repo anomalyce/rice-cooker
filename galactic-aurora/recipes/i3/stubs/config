@@ -54,6 +54,9 @@ no_focus [class="^Project" title="Alacritty$"]
 # Move all floating windows centrally
 for_window [floating] move position center
 
+# Make sure TeamViewer opens up in floating mode to prevent rendering issues
+for_window [class="^TeamViewer"] floating enable
+
 
 
 
