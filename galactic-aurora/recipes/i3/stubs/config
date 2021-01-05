@@ -196,6 +196,9 @@ bindsym @[[mod]]+Shift+r restart
 # Reload the workspaces
 bindsym @[[mod]]+Shift+t await-network "${RECIPE_DIST_DIR}/scripts/workspaces.sh"
 
+# Force refresh monitors
+bindsym --release @[[mod]]+Shift+m exec --no-startup-id "${RECIPE_DIST_DIR}/scripts/force-refresh-monitors.sh"
+
 
 
 
