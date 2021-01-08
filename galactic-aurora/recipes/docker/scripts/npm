@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
+#    --user 'node' 
 docker run --rm --interactive --tty \
-    --user 'node' \
+    --user $(id -u):$(id -g) \
+    --env DBUS_SESSION_BUS_ADDRESS="${DBUS_SESSION_BUS_ADDRESS}" \
+    --env npm_config_cache=/.npm \
     --volume $PWD:/app \
     --volume $HOME/.npx:/home/node/.npm-global \
+    --volume $HOME/.cache/npm:/.npm \
+    --volume /run/user/1000/bus:/run/user/1000/bus \
     --workdir /app \
     globalnode:latest \
     npm $@

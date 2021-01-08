@@ -1,9 +1,20 @@
-# docker build -t globalnode -f ./galactic-aurora/recipes/docker/Dockerfiles/npm ./galactic-aurora/recipes/docker
-FROM node:current-alpine
+#FROM node:current-alpine
+FROM node:13.12.0-alpine
+
+ARG DOCKER_UID
+ARG DOCKER_GID
 
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 ENV PATH=$PATH:/home/node/.npm-global/bin
 
+RUN apk --no-cache add libnotify git openssh curl wget tar bzip2 automake
+
 RUN deluser --remove-home node \
-  && addgroup -S node -g 985 \
-  && adduser -S -G node -u 1000 node
+  && addgroup -S node -g $DOCKER_UID \
+  && adduser -S -G node -u $DOCKER_GID node
+
+RUN mkdir -p /.config \
+  && mkdir -p /home/node/.config \
+  && chown -R $DOCKER_UID:$DOCKER_GID /.config \
+  && chown -R $DOCKER_UID:$DOCKER_GID /home/node/.config
+
