@@ -6,6 +6,9 @@ pkill -f "\-\-class\=FirefoxTwitter"
 # Discord
 pkill Discord
 
+# Signal
+pkill signal-desktop
+
 # Ferdi
 pkill ferdi
 

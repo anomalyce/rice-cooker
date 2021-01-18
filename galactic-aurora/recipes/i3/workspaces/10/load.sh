@@ -6,6 +6,9 @@ i3-msg --quiet "exec --no-startup-id nohup firefoxtwitter >/dev/null 2>&1 &"
 # Discord
 i3-msg --quiet "exec --no-startup-id nohup discord --disable-seccomp-filter-sandbox >/dev/null 2>&1 &"
 
+# Signal
+i3-msg --quiet "exec --no-startup-id nohup signal-desktop >/dev/null 2>&1 &"
+
 # Ferdi
 i3-msg --quiet "exec --no-startup-id nohup ferdi >/dev/null 2>&1 &"
 
@@ -13,7 +16,7 @@ i3-msg --quiet "exec --no-startup-id nohup ferdi >/dev/null 2>&1 &"
 #i3-msg --quiet "exec --no-startup-id nohup slack >/dev/null 2>&1 &"
 
 # Element/Riot
-i3-msg --quiet "exec --no-startup-id nohup element-desktop >/dev/null 2>&1 &"
+# i3-msg --quiet "exec --no-startup-id nohup element-desktop >/dev/null 2>&1 &"
 
 # YouTube Firefox
 i3-msg --quiet "exec --no-startup-id nohup firefoxyoutube >/dev/null 2>&1 &"
