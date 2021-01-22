@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if ! [ -x "$(command -v subl)" && -x "$(command -v subl3)" && -x "$(command -v subl4)" ]; then
+if ! [ -x "$(command -v subl)" ]; then
     rice_cooker_skip "Sublime Text is not installed, skipping Sublime Text's theme compilation..."
 fi
 
@@ -33,9 +33,9 @@ rice_cooker_debug "Compiling Material Theme"
 ${RECIPE_CACHE_DIR}/node_modules/.bin/gulp
 
 rice_cooker_debug "Compiling Material Theme Scheme"
-subl3 "${RECIPE_CACHE_DIR}/schemes/Material-Theme-${THEME_TITLE}.yml" && \
-subl3 --command "packagedev_convert" && \
-subl3 --command "hide_panel"
+subl "${RECIPE_CACHE_DIR}/schemes/Material-Theme-${THEME_TITLE}.yml" && \
+subl --command "packagedev_convert" && \
+subl --command "hide_panel"
 
 rice_cooker_debug "Sleeping for 5 seconds to allow the compilation to finish"
 sleep 5
