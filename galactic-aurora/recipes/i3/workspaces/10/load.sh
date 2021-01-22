@@ -4,7 +4,8 @@
 i3-msg --quiet "exec --no-startup-id nohup firefoxtwitter >/dev/null 2>&1 &"
 
 # Discord
-i3-msg --quiet "exec --no-startup-id nohup discord --disable-seccomp-filter-sandbox >/dev/null 2>&1 &"
+# i3-msg --quiet "exec --no-startup-id nohup discord --disable-seccomp-filter-sandbox >/dev/null 2>&1 &"
+i3-msg --quiet "exec --no-startup-id nohup discord --no-sandbox >/dev/null 2>&1 &"
 
 # Signal
 i3-msg --quiet "exec --no-startup-id nohup signal-desktop >/dev/null 2>&1 &"
