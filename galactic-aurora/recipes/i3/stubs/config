@@ -141,6 +141,10 @@ exec --no-startup-id @[[HOME]]/.local/share/rice-cooker/polybar/polybar.sh &
 # Conky
 exec --no-startup-id cd @[[HOME]]/.local/share/rice-cooker/conky && conky --quiet --config=@[[HOME]]/.local/share/rice-cooker/conky/conky.conf &
 
+# GNOME Keyring
+exec --no-startup-id dex @[[HOME]]/.config/autostart/gnome-keyring-secrets.desktop &
+exec --no-startup-id dex @[[HOME]]/.config/autostart/gnome-keyring-ssh.desktop &
+
 # Workspaces
 exec --no-startup-id await-network "${RECIPE_DIST_DIR}/scripts/workspaces.sh"
 
@@ -312,10 +316,10 @@ client.urgent               ${THEME_COLOUR_BRIGHT_RED} ${THEME_COLOUR_BRIGHT_RED
 client.background           ${THEME_BACKGROUND}
 
 # Borders
-default_border pixel 0
-default_floating_border pixel 0
-border_radius 0
-for_window [class="VSCodium"] border none
+default_border pixel 1
+default_floating_border pixel 1
+#border_radius 0
+#for_window [class="VSCodium"] border none
 
 # Gaps
 gaps inner 15
