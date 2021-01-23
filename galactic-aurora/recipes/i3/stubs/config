@@ -142,8 +142,7 @@ exec --no-startup-id @[[HOME]]/.local/share/rice-cooker/polybar/polybar.sh &
 exec --no-startup-id cd @[[HOME]]/.local/share/rice-cooker/conky && conky --quiet --config=@[[HOME]]/.local/share/rice-cooker/conky/conky.conf &
 
 # GNOME Keyring
-exec --no-startup-id dex @[[HOME]]/.config/autostart/gnome-keyring-secrets.desktop &
-exec --no-startup-id dex @[[HOME]]/.config/autostart/gnome-keyring-ssh.desktop &
+exec_always ${RECIPE_DIST_DIR}/scripts/gnome-keyring.sh
 
 # Workspaces
 exec --no-startup-id await-network "${RECIPE_DIST_DIR}/scripts/workspaces.sh"
