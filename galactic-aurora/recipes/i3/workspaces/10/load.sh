@@ -26,4 +26,4 @@ i3-msg --quiet "exec --no-startup-id nohup firefoxyoutube >/dev/null 2>&1 &"
 i3-msg --quiet "exec --no-startup-id LD_PRELOAD=/usr/lib/libcurl-gnutls.so.3:/usr/lib/spotifywm.so nohup spotify >/dev/null 2>&1 &"
 
 # TodoList
-i3-msg --quiet "exec --no-startup-id nohup alacritty --config-file ~/.config/alacritty/todolist.yml --title AlacrittyTodoList --class AlacrittyTodoList -e zsh -i -c 'tb && $SHELL' >/dev/null 2>&1 &"
+i3-msg --quiet "exec --no-startup-id nohup alacritty --config-file ~/.config/alacritty/alacritty.yml --title AlacrittyTodoList --class AlacrittyTodoList -e zsh -i -c 'tb && $SHELL' >/dev/null 2>&1 &"

@@ -65,6 +65,11 @@ cp -r "${RECIPE_DIR}/stubs/modules/workspaces" "${RECIPE_DIST_DIR}/modules/works
 rice_cooker_substitute_env "${RECIPE_DIST_DIR}/modules/workspaces/workspaces.ini"
 echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/modules/workspaces/workspaces.ini"
 
+rice_cooker_debug "Publishing i3 mode module"
+cp -r "${RECIPE_DIR}/stubs/modules/i3-mode" "${RECIPE_DIST_DIR}/modules/i3-mode"
+rice_cooker_substitute_env "${RECIPE_DIST_DIR}/modules/i3-mode/i3-mode.ini"
+echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/modules/i3-mode/i3-mode.ini"
+
 rice_cooker_debug "Publishing Applications module"
 cp -r "${RECIPE_DIR}/stubs/modules/applications" "${RECIPE_DIST_DIR}/modules/applications"
 rice_cooker_substitute_env "${RECIPE_DIST_DIR}/modules/applications/applications.ini"

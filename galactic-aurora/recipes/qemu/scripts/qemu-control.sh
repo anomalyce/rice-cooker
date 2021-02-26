@@ -395,7 +395,21 @@ function process/virsh {
 # Looking Glass process.
 #
 function process/lookingglass {
-    echo "looking-glass-client -K 120 -m 281 -g OpenGL -o input:grabKeyboard=0 input:grabKeyboardOnFocus=no -o win:size=1920x1080 -o opengl:vsync=1 >/dev/null 2>&1"
+    # Escape key 161 is the EJECT key
+    # https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h
+
+    echo "looking-glass-client \
+win:title='Windows KVM' \
+input:escapeKey=161 \
+input:ignoreWindowsKeys=yes \
+input:grabKeyboardOnFocus=no \
+egl:vsync=yes \
+opengl:vsync=yes \
+win:noScreensaver=yes \
+win:borderless=yes \
+win:size=1920x1080
+"
+    #echo "looking-glass-client -K 120 -m 281 -g OpenGL -o input:grabKeyboard=0 input:grabKeyboardOnFocus=no -o win:size=1920x1080 -o opengl:vsync=1 >/dev/null 2>&1"
 }
 
 #

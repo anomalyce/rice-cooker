@@ -8,7 +8,7 @@
     "nodes": [
         {
             "border": "pixel",
-            "current_border_width": 0,
+            "current_border_width": 1,
             "floating": "auto_off",
             "geometry": {
                 "height": 1280,
@@ -46,7 +46,7 @@
             "nodes": [
                 {
                     "border": "pixel",
-                    "current_border_width": 0,
+                    "current_border_width": 1,
                     "floating": "auto_off",
                     "geometry": {
                         "height": 1020,
@@ -67,7 +67,7 @@
                 },
                 {
                     "border": "pixel",
-                    "current_border_width": 0,
+                    "current_border_width": 1,
                     "floating": "auto_off",
                     "geometry": {
                         "height": 1020,
@@ -87,7 +87,7 @@
                 },
                 {
                     "border": "pixel",
-                    "current_border_width": 0,
+                    "current_border_width": 1,
                     "floating": "auto_off",
                     "geometry": {
                         "height": 1020,
@@ -107,7 +107,7 @@
                 },
                 {
                     "border": "pixel",
-                    "current_border_width": 0,
+                    "current_border_width": 1,
                     "floating": "auto_off",
                     "geometry": {
                         "height": 1020,
@@ -137,7 +137,7 @@
             "nodes": [
                 {
                     "border": "pixel",
-                    "current_border_width": 0,
+                    "current_border_width": 1,
                     "floating": "auto_off",
                     "geometry": {
                        "height": 1138,
@@ -156,7 +156,7 @@
                 },
                 {
                     "border": "pixel",
-                    "current_border_width": 0,
+                    "current_border_width": 1,
                     "floating": "auto_off",
                     "geometry": {
                        "height": 1280,
@@ -187,7 +187,7 @@
     "nodes": [
         {
             "border": "pixel",
-            "current_border_width": 0,
+            "current_border_width": 1,
             "floating": "auto_off",
             "geometry": {
                 "height": 2068,

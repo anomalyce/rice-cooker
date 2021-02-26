@@ -1,4 +1,4 @@
-sublime_project:
+vscode_project:
     "%project%":
         path: "."
     dist:
@@ -6,11 +6,19 @@ sublime_project:
     cache:
         path: "~/.cache/rice-cooker"
 
+# sublime_project:
+#     "%project%":
+#         path: "."
+#     dist:
+#         path: "~/.local/share/rice-cooker"
+#     cache:
+#         path: "~/.cache/rice-cooker"
+
 i3_workspace:
     panel_left:
         width: 0.65
         nodes:
-            editor: true
+            vscode: true
     panel_right:
         width: 0.35
         nodes:

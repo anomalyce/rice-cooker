@@ -63,9 +63,10 @@ for_window [class="^TeamViewer"] floating enable
 
 # v ------------------ Password Manager ------------------ v #
 
-for_window [class="KeeWeb"] floating toggle, resize set 50 ppt 60 ppt, move position center, move to workspace current
+for_window [class="KeeWeb"] floating toggle, resize set 50 ppt 60 ppt, move position center, move to workspace current, sticky enable
 
-bindsym @[[mod]]+Shift+p exec --no-startup-id nohup keeweb --force-device-scale-factor=2 >/dev/null 2>&1 &
+bindsym @[[mod]]+Shift+k exec --no-startup-id nohup keeweb --force-device-scale-factor=2 >/dev/null 2>&1 &
+
 
 
 
@@ -133,7 +134,7 @@ assign [title="AlacrittyTodoList"] @[[ws10]]
 exec --no-startup-id ${RECIPE_DIST_DIR}/scripts/screenlayout.sh
 
 # Wallpaper
-exec --no-startup-id @[[USERSCRIPTS]]/misc/i3wpd/i3wpd.py "--bg-scale" @[[HOME]]/Pictures/wallpapers/i3 .jpeg &
+exec --no-startup-id feh --bg-fill @[[HOME]]/Pictures/wallpaper &
 
 # Polybar
 exec --no-startup-id @[[HOME]]/.local/share/rice-cooker/polybar/polybar.sh &
@@ -164,7 +165,8 @@ bindsym @[[mod]]+Shift+Return exec --no-startup-id nohup firefox -P default --ne
 bindsym @[[mod]]+Shift+x exec --no-startup-id @[[HOME]]/.local/share/rice-cooker/rofi/system.sh
 
 # Applications Launcher
-bindsym @[[mod]]+d exec --no-startup-id @[[HOME]]/.local/share/rice-cooker/rofi/applications.sh
+#bindsym @[[mod]]+d exec --no-startup-id @[[HOME]]/.local/share/rice-cooker/rofi/applications.sh
+bindsym @[[mod]]+d exec --no-startup-id "pkill rofi; rofi -config @[[HOME]]/Desktop/scripts/rofi/drun.rasi -monitor primary -normal-window -show-icons -modi drun -show drun"
 
 # Project Launcher
 bindsym @[[mod]]+p exec --no-startup-id python @[[USERSCRIPTS]]/neutron list
@@ -184,6 +186,9 @@ bindsym --release Ctrl+Shift+4 exec --no-startup-id "@[[USERSCRIPTS]]/drops/scre
 # Screen capture
 bindsym --release Ctrl+Shift+5 exec --no-startup-id "@[[USERSCRIPTS]]/drops/screencapture.sh @[[DROPS_URL]] @[[DROPS_SSH]] | xclip -selection clipboard"
 
+# Colour Picker
+bindsym --release @[[mod]]+Shift+p exec --no-startup-id xcolor | tr -d '\n' | xclip -selection primary
+
 
 
 
@@ -191,16 +196,16 @@ bindsym --release Ctrl+Shift+5 exec --no-startup-id "@[[USERSCRIPTS]]/drops/scre
 # v ------------------ VM Hotkeys ------------------ v #
 
 # Reload the configuration
-bindsym @[[mod]]+Shift+c reload
+bindsym @[[mod]]+i exec --no-startup-id i3-msg "reload" && notify-send "i3" "Reloaded i3"
 
 # Restart the window manager
-bindsym @[[mod]]+Shift+r restart
+bindsym @[[mod]]+Shift+i exec --no-startup-id i3-msg "restart" && notify-send "i3" "Restarted i3"
 
 # Reload the workspaces
-bindsym @[[mod]]+Shift+t await-network "${RECIPE_DIST_DIR}/scripts/workspaces.sh"
+bindsym @[[mod]]+Shift+o exec --no-startup-id await-network "${RECIPE_DIST_DIR}/scripts/workspaces.sh && notify-send 'i3' 'Reloaded workspaces'"
 
 # Force refresh monitors
-bindsym --release @[[mod]]+Shift+m exec --no-startup-id "${RECIPE_DIST_DIR}/scripts/force-refresh-monitors.sh"
+bindsym --release @[[mod]]+Shift+m exec --no-startup-id "${RECIPE_DIST_DIR}/scripts/force-refresh-monitors.sh && notify-send 'i3' 'Refreshing monitors'"
 
 
 
@@ -210,6 +215,7 @@ bindsym --release @[[mod]]+Shift+m exec --no-startup-id "${RECIPE_DIST_DIR}/scri
 
 # Toggle window fullscreen
 bindsym @[[mod]]+f fullscreen toggle
+bindsym @[[mod]]+shift+f focus parent; fullscreen; focus child
 
 # Focus between windows
 bindsym @[[mod]]+Up focus up
@@ -217,14 +223,18 @@ bindsym @[[mod]]+Right focus right
 bindsym @[[mod]]+Down focus down
 bindsym @[[mod]]+Left focus left
 
-# Focus container
-bindsym @[[mod]]+c focus parent
-
 # Toggle floating mode
 bindsym @[[mod]]+Shift+space floating toggle, move position center
 
 # Kill the focused window
 bindsym @[[mod]]+Shift+q kill
+
+# Focus the container
+bindsym @[[mod]]+c focus parent
+
+# Rename Container
+bindsym @[[mod]]+n exec --no-startup-id "${RECIPE_DIST_DIR}/scripts/rename-container.sh"
+bindsym @[[mod]]+Shift+n exec --no-startup-id "${RECIPE_DIST_DIR}/scripts/rename-container.sh parent"
 
 
 
@@ -243,6 +253,7 @@ bindsym @[[mod]]+h split h
 bindsym @[[mod]]+v split v
 
 # Change container layout
+bindsym @[[mod]]+t split toggle, layout tabbed
 bindsym @[[mod]]+s layout stacking
 bindsym @[[mod]]+w layout tabbed
 bindsym @[[mod]]+e layout toggle split
@@ -307,22 +318,36 @@ mode "resize" {
 
 # v ------------------ Theming ------------------ v #
 
+set @[[transparent]]    "#000000"
+set @[[bg_active]]      "#181b23"
+set @[[bg_inactive]]    "#12141a"
+set @[[fg_active]]      "#B8BECF"
+set @[[fg_inactive]]    "#393E4E"
+set @[[b_active]]       "#393E4E"
+set @[[b_inactive]]     "#282C38"
+
+set @[[red]]        "#ff0000"
+set @[[green]]      "#00ff00"
+set @[[blue]]       "#0000ff"
+set @[[yellow]]     "#ffff00"
+set @[[magenta]]    "#ff00ff"
+
 # Window Colors (Border, Background, Text, Indicator, Child Border)
-client.focused              ${THEME_BACKGROUND} ${THEME_BACKGROUND} ${THEME_FOREGROUND} ${THEME_BACKGROUND} ${THEME_BACKGROUND}
-client.unfocused            #000000 #000000 ${THEME_BACKGROUND_LIGHTEST} ${THEME_BACKGROUND} ${THEME_BACKGROUND}
-client.focused_inactive     ${THEME_BACKGROUND} ${THEME_BACKGROUND} ${THEME_BACKGROUND_LIGHTEST} ${THEME_FOREGROUND} ${THEME_BACKGROUND}
-client.urgent               ${THEME_COLOUR_BRIGHT_RED} ${THEME_COLOUR_BRIGHT_RED} ${THEME_COLOUR_BRIGHT_WHITE} ${THEME_COLOUR_BRIGHT_RED} ${THEME_COLOUR_BRIGHT_RED}
-client.background           ${THEME_BACKGROUND}
+# Window Type               Tab Border          Background          Text                Indicator           Window Border
+client.focused              @[[b_inactive]]     @[[bg_active]]      @[[fg_active]]      @[[b_active]]       @[[b_inactive]]
+client.focused_inactive     @[[b_inactive]]     @[[bg_inactive]]    @[[fg_active]]      @[[b_active]]       @[[b_inactive]]
+client.unfocused            @[[b_inactive]]     @[[transparent]]    @[[fg_inactive]]    @[[b_active]]       @[[b_inactive]]
+client.urgent               @[[red]]            @[[green]]          @[[blue]]           @[[b_active]]       @[[magenta]]
+client.placeholder          @[[b_inactive]]     @[[transparent]]    @[[fg_inactive]]    @[[b_active]]       @[[b_inactive]]
+client.background           @[[red]]
 
 # Borders
 default_border pixel 1
 default_floating_border pixel 1
-#border_radius 0
-#for_window [class="VSCodium"] border none
 
 # Gaps
-gaps inner 15
-gaps top 65
+gaps inner 25
+gaps top 75
 
 # Window Titles
 for_window [class="^.*"] title_format "  %class "
@@ -333,7 +358,7 @@ for_window [class="FirefoxYouTube"] title_format "  Media Browser "
 for_window [class="FirefoxTwitter"] title_format "  Twitter "
 for_window [class="Chromium-browser"] title_format "  Popcorn Time "
 for_window [class="vlc"] title_format "  Video Player "
-for_window [class="(Subl3?|VSCodium)"] title_format "  Editor "
+for_window [class="(Subl3?|VSCodium|code-oss)"] title_format "  Editor "
 for_window [class="electron-mail"] title_format "  Inbox "
 for_window [class="Bitwarden"] title_format "  Password Manager "
 for_window [class="KeeWeb"] title_format "  Password Manager "

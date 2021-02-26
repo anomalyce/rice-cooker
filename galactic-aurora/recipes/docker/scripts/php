@@ -18,6 +18,6 @@ else
         --user "$(id -u):$(id -g)" \
         --volume $PWD:/usr/share/nginx/html \
         --workdir /usr/share/nginx/html \
-        php \
+        globalphp \
         php -d memory_limit=-1 $@
 fi

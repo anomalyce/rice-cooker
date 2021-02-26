@@ -7,3 +7,7 @@ docker build \
     -t globalnode \
     -f ./npm ../
 
+docker build \
+    --no-cache \
+    -t globalphp \
+    -f ./php ../

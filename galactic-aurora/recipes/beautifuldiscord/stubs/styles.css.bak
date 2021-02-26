@@ -7,46 +7,42 @@
 
     /* Chat background */
     /*--background-primary: $THEME_BACKGROUND_ALT;*/
-    --background-primary: transparent;
+    --background-primary: rgba(0, 0, 0, .8);
 
     /* Sidebar background */
-    --background-secondary: transparent;
+    --background-secondary: $THEME_BACKGROUND;
 
     /* Sidebar bottom background */
-    --background-secondary-alt: transparent;
+    --background-secondary-alt: $THEME_BACKGROUND;
 
     /* Search input background */
-    --background-tertiary: transparent;
+    --background-tertiary: $THEME_BACKGROUND_LIGHT;
 
     /* Textarea */
     --channeltextarea-background: $THEME_BACKGROUND;
 
     /* Selected conversation */
-    --background-modifier-selected: rgba(255, 255, 255, .05);
-}
-
-body {
-    background-color: rgba(18, 20, 26, .7) !important;
+    --background-modifier-selected: $THEME_BACKGROUND_LIGHT;
 }
 
 /* Avatar fallback */
 .avatar-1BDn8e {
-    background-color: transparent;
+    background-color: $THEME_BACKGROUND_LIGHT;
 }
 
 /* Friends list */
 .theme-dark #app-mount div[class*="base-"] > div[class^="content-"] > div[class*="container-"] {
-    background-color: transparent;
+    background-color: $THEME_BACKGROUND_ALT;
 }
 
 /* Video call wrapper */
 .theme-dark #app-mount div[class*="base-"] div[class*="chat-"] > div[class*="wrapper-"] {
-    background-color: transparent;
+    background-color: $THEME_BACKGROUND_ALT;
 }
 
 /* Video call individual people */
 .theme-dark #app-mount div[class*="base-"] div[class*="chat-"] div[class*="grid-"] div[class*="tile-"][role="button"] [class*="content-"] > div {
-    background-color: transparent !important;
+    background-color: $THEME_BACKGROUND !important;
 }
 
 /* Video call individual people speaking */

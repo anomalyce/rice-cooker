@@ -1,7 +1,7 @@
 :root {
     --black: $THEME_BACKGROUND;
     --background-primary: var(--black);
-    --background-secondary: $THEME_BACKGROUND_DARK;
+    --background-secondary: $THEME_BACKGROUND;
 }
 
 /* Content */
@@ -25,4 +25,19 @@ main[role="main"] > div > div > div > div > div > div > div > div > div > div > 
 /* Hide post comments when viewing a photo */
 .css-1dbjc4n.r-yfoy6g.r-18bvks7.r-1ljd8xs.r-1phboty.r-1dqxon3.r-1hycxz {
     display: none;
+}
+
+/* Change the photo background overlay */
+.css-1dbjc4n.r-1pi2tsx.r-11yh6sk.r-buy8e9.r-bnwqim.r-13qz1uu {
+    background-color: rgba(0, 0, 0, .4) !important;
+}
+.css-18t94o4.css-1dbjc4n.r-42olwf.r-sdzlij.r-1phboty.r-rs99b7.r-1w2pmg.r-1vuscfd.r-53xb7h.r-1ny4l3l.r-mk0yit.r-o7ynqc.r-6416eg.r-lrvibr,
+.css-901oao.r-1awozwy.r-jwli3a.r-6koalj.r-18u37iz.r-16y2uox.r-1qd0xha.r-a023e6.r-b88u0q.r-1777fci.r-ad9z0x.r-dnmrzs.r-bcqeeo.r-q4m81j.r-qvutc0 {
+    background-color: transparent !important;
+}
+
+/* Hide weird small bar below "Whats happening" and the first post */
+main [data-testid="primaryColumn"] > div > div:nth-child(3) {
+    height: 0px;
+    border-bottom: none;
 }

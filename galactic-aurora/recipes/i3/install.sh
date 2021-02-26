@@ -23,7 +23,7 @@ rice_cooker_debug "Reloading the i3 configuration"
 ( i3-msg reload ) 2>/dev/null 1>&2
 sleep 1
 
-rice_cooker_debug "Re-launching all the applications"
-await-network "${RECIPE_DIST_DIR}/scripts/workspaces.sh"
+#rice_cooker_debug "Re-launching all the applications"
+#await-network "${RECIPE_DIST_DIR}/scripts/workspaces.sh"
 
 exit 0

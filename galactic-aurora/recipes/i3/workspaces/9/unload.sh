@@ -4,7 +4,10 @@
 pkill electron-mail
 
 # Todoist
-pkill todoist
+#pkill todoist
+
+# Notion
+pkill notion-app
 
 # Toggl Desktop
 #pkill TogglDesktop
