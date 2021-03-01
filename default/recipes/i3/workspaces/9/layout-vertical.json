@@ -1,0 +1,70 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "current_border_width": 1,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 2080,
+       "width": 1860,
+       "x": 3880,
+       "y": 40
+    },
+    "marks": [],
+    "name": "Bitwarden",
+    "percent": 0.333333333333333,
+    "swallows": [
+       {
+       "class": "^Bitwarden$",
+       "instance": "^bitwarden$",
+       "window_role": "^browser\\-window$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 1,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 860,
+       "width": 1320,
+       "x": 1260,
+       "y": 650
+    },
+    "marks": [],
+    "name": "Clientele TODO",
+    "percent": 0.333333333333333,
+    "swallows": [
+       {
+       "class": "^Notion$",
+       "instance": "^notion$",
+       "window_role": "^browser\\-window$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 1,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 2030,
+       "width": 1860,
+       "x": 1940,
+       "y": 40
+    },
+    "marks": [],
+    "name": "ElectronMail",
+    "percent": 0.333333333333333,
+    "swallows": [
+       {
+       "class": "^electron\\-mail$",
+       "instance": "^electron\\-mail$",
+       "window_role": "^browser\\-window$"
+       }
+    ],
+    "type": "con"
+}
+

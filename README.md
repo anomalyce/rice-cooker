@@ -2,15 +2,17 @@
 ## Usage
 ### Theme Installation
 ```bash
-./rice-cooker.sh galactic-aurora
+./rice-cooker.sh default
 ```
 
 #### Specific Recipes
 ```bash
-RC_RECIPES=spicetify,beautifuldiscord ./rice-cooker.sh galactic-aurora
+# or you can use the RC_RECIPES env variable
+# `export RC_RECIPES="spicetify,beautifuldiscord"`
+./rice-cooker.sh --recipes spicetify,beautifuldiscord default
 ```
 
 ### Theme Uninstallation
 ```bash
-./rice-cooker.sh --uninstall galactic-aurora
+./rice-cooker.sh --uninstall default
 ```
