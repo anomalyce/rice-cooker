@@ -13,7 +13,7 @@ fi
 for LAYOUT in $(ls "${WORKSPACE_DIR}"/[0-9]*/layout.json | sort -V);
 do
     # Layout file
-    if [[ -n "${MONITOR_LAYOUT_VERTICAL}" && -f "${LAYOUT/layout.json/layout-vertical.json}" ]]; then
+    if [[ -f "${LAYOUT/layout.json/layout-vertical.json}" ]]; then
         LAYOUT="${LAYOUT/layout.json/layout-vertical.json}"
     fi
 
