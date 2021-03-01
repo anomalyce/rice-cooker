@@ -13,19 +13,19 @@ rice_cooker_debug "Attempting to switch to the develop branch"
 cd ${RECIPE_CACHE_DIR} && git checkout develop
 
 rice_cooker_debug "Converting theme userstyle"
-rice_cooker_substitute_env "${RECIPE_DIR}/stubs/userstyle.styl"
-echo "${RICE_COOKER_OUTPUT}" >> "${RECIPE_CACHE_DIR}/rice-cooker.styl"
+rice_cooker_substitute_env "${RECIPE_DIR}/stubs/metadata.styl"
+echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_CACHE_DIR}/metadata.styl"
 
-rice_cooker_debug "Converting stylus to regular CSS"
-${RECIPE_DIR}/scripts/convert-stylus-to-css.sh "${RECIPE_CACHE_DIR}"
+cd ${RECIPE_CACHE_DIR}
 
 rice_cooker_debug "Granting execute permission to shell script"
 chmod +x ${RECIPE_CACHE_DIR}/whatsapp.sh
 
-cd ${RECIPE_CACHE_DIR}
+rice_cooker_debug "Installing stylus through NPM"
+npm install stylus
 
 rice_cooker_debug "Running shell script"
-${RECIPE_CACHE_DIR}/whatsapp.sh -f
+${RECIPE_CACHE_DIR}/whatsapp.sh -cuf
 
 rice_cooker_debug "Applying custom CSS from styles.css"
 cat ${RECIPE_DIR}/stubs/styles.css >> ${RECIPE_CACHE_DIR}/darkmode.css

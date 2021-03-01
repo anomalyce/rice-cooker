@@ -1,0 +1,178 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "current_border_width": 1,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 600,
+       "width": 800,
+       "x": 0,
+       "y": 0
+    },
+    "marks": [],
+    "name": "Alacritty",
+    "percent": 0.315624999999998,
+    "swallows": [
+       {
+       "class": "^Alacritty$",
+       "instance": "^Alacritty$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    // tabbed split container with 4 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "tabbed",
+    "marks": [],
+    "percent": 0.315624999999998,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1020,
+               "width": 1846,
+               "x": 4876,
+               "y": 40
+            },
+            "marks": [],
+            "name": "#pelican-nest - Discord",
+            "percent": 0.25,
+            "swallows": [
+               {
+               "class": "^discord$",
+               "instance": "^discord$",
+               "window_role": "^browser\\-window$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1020,
+               "width": 1846,
+               "x": 4876,
+               "y": 40
+            },
+            "marks": [],
+            "name": "Signal",
+            "percent": 0.25,
+            "swallows": [
+               {
+               "class": "^Signal$",
+               "instance": "^signal$",
+               "window_role": "^browser\\-window$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1020,
+               "width": 1846,
+               "x": 4876,
+               "y": 40
+            },
+            "marks": [],
+            "name": "Ferdi - WhatsApp",
+            "percent": 0.25,
+            "swallows": [
+               {
+               "class": "^Ferdi$",
+               "instance": "^ferdi$",
+               "window_role": "^browser\\-window$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 2068,
+               "width": 936,
+               "x": 0,
+               "y": 0
+            },
+            "marks": [],
+            "name": "Home / Twitter — Mozilla Firefox",
+            "percent": 0.25,
+            "swallows": [
+               {
+               "class": "^FirefoxTwitter$",
+               "instance": "^Navigator$",
+               "window_role": "^browser$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    // tabbed split container with 2 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "tabbed",
+    "marks": [],
+    "percent": 0.368750000000004,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1138,
+               "width": 1847,
+               "x": 0,
+               "y": 0
+            },
+            "marks": [],
+            "name": "YouTube — Mozilla Firefox",
+            "percent": 0.5,
+            "swallows": [
+               {
+               "class": "^FirefoxYouTube$",
+               "instance": "^Navigator$",
+               "window_role": "^browser$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1280,
+               "width": 1707,
+               "x": 0,
+               "y": 0
+            },
+            "marks": [],
+            "name": "Noak Hellsing - Good Enough",
+            "percent": 0.5,
+            "swallows": [
+               {
+               "class": "^Spotify$",
+               "instance": "^spotify$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+

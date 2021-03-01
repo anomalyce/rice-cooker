@@ -325,32 +325,37 @@ function rice_cooker_uninstall {
     done
 }
 
-while [ $# -gt 0 ]; do    
-    case "${1}" in
-        -h|--help)
-            echo "This screen:"
-            echo "  ./rice-cooker.sh --help"
-            echo "  ./rice-cooker.sh -h"
-            echo "-----"
-            echo "Install theme using:"
-            echo "  ./rice-cooker.sh --uninstall <theme>"
-            echo "  ./rice-cooker.sh -u <theme>"
-            echo "-----"
-            echo "Install theme using:"
-            echo "  ./rice-cooker.sh <theme>"
-            exit 0
-            ;;
 
-        -u|--uninstall)
-            rice_cooker_uninstall $2
-            exit 0
-            ;;
 
-        *)
-            rice_cooker_install $1
-            exit 0
-            ;;
-    esac
+# Include the flag library (https://github.com/kward/shflags)
+. ./shflags
 
-    shift
-done
+# Define flags
+DEFINE_boolean 'uninstall' true 'Uninstall previously cooked up recipes' 'u'
+DEFINE_string 'recipes' '' 'Comma separated list of recipes to cook up' 'r'
+
+# Register flags
+FLAGS "$@" || exit $?
+eval set -- "${FLAGS_ARGV}"
+
+export RC_THEME="$(echo ${FLAGS_ARGV[0]} | tr -d "'")"
+
+# Exit if we're missing a theme
+if [[ -z "${RC_THEME}" || "${RC_THEME}" = \.\/* || "${RC_THEME}" = \-* ]]; then
+    echo "You must specify a theme"
+    exit 1
+fi
+
+# Uninstalling
+if [ "${FLAGS_uninstall}" = 1 ]; then
+    rice_cooker_uninstall "${RC_THEME}"
+    exit 0
+fi
+
+# Check if any recipes were specified
+if [ -n "${FLAGS_recipes}" ]; then
+    export RC_RECIPES="${FLAGS_recipes}"
+fi
+
+rice_cooker_install "${RC_THEME}"
+exit 0

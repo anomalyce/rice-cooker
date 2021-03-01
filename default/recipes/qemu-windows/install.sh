@@ -11,10 +11,20 @@ rice_cooker_substitute_env "${RECIPE_DIR}/screenlayouts/single-4k.sh"
 echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/single-4k.sh"
 chmod +x "${RECIPE_DIST_DIR}/single-4k.sh"
 
+rice_cooker_debug "Publishing the Single 4K (vertical) screenlayout"
+rice_cooker_substitute_env "${RECIPE_DIR}/screenlayouts/single-4k-vertical.sh"
+echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/single-4k-vertical.sh"
+chmod +x "${RECIPE_DIST_DIR}/single-4k-vertical.sh"
+
 rice_cooker_debug "Publishing the Dual 4K screenlayout"
 rice_cooker_substitute_env "${RECIPE_DIR}/screenlayouts/dual-4k.sh"
 echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/dual-4k.sh"
 chmod +x "${RECIPE_DIST_DIR}/dual-4k.sh"
+
+rice_cooker_debug "Publishing the Dual 4K (vertical) screenlayout"
+rice_cooker_substitute_env "${RECIPE_DIR}/screenlayouts/dual-4k-vertical.sh"
+echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/dual-4k-vertical.sh"
+chmod +x "${RECIPE_DIST_DIR}/dual-4k-vertical.sh"
 
 rice_cooker_debug "Publishing the VFIO load script"
 rice_cooker_substitute_env "${RECIPE_DIR}/scripts/vfio-load.sh"

@@ -1,12 +1,13 @@
 #!/bin/bash
 
 # Information
-export THEME_TITLE="Galactic-Aurora"
-export THEME_IDENTIFIER="galacticaurora"
+export THEME_TITLE="Default"
+export THEME_IDENTIFIER="default"
 export THEME_UUID=`uuidgen -t`
-export THEME_WALLPAPER="${HOME}/Pictures/wallpapers/women-white-long-hairs-dark-minimalism-5a.jpg"
+export THEME_WALLPAPER="${HOME}/Pictures/wallpapers/minimal-female-black-red-haired.jpg"
 
 # Configuration
+export MONITOR_LAYOUT_VERTICAL=1
 export MONITOR_PRIMARY="DisplayPort-0"
 export MONITOR_SECONDARY="DisplayPort-2"
 
