@@ -8,7 +8,7 @@
 #     --output DVI-D-0 --off
 
 if [[ "${MONITOR_LAYOUT_VERTICAL}" != "1" ]]; then
-    ${RECIPE_DIST_DIR}/../qemu-windows/screenlayouts/dual-4k.sh
+    ${RECIPE_DIST_DIR}/../qemu-windows/dual-4k.sh
 else
-    ${RECIPE_DIST_DIR}/../qemu-windows/screenlayouts/dual-4k-vertical.sh
+    ${RECIPE_DIST_DIR}/../qemu-windows/dual-4k-vertical.sh
 fi
