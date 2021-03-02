@@ -13,13 +13,8 @@ fi
 for LAYOUT in $(ls "${WORKSPACE_DIR}"/[0-9]*/layout.json | sort -V);
 do
     # Layout file
-<<<<<<< HEAD
     if [[ -f "${LAYOUT/layout.json/layout-vertical.json}" ]]; then
         LAYOUT="${LAYOUT/layout.json/layout-vertical.json}"
-=======
-    if [[ -f "${LAYOUT/layout/layout-vertical}" ]]; then
-        LAYOUT="${LAYOUT/layout/layout-vertical}"
->>>>>>> f9bc326 (Update)
     fi
 
     WORKSPACE="$(basename $(dirname $(echo "${LAYOUT}")))"
