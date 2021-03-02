@@ -14,9 +14,9 @@
     "percent": 0.333333333333333,
     "swallows": [
        {
-       "class": "^Bitwarden$",
-       "instance": "^bitwarden$",
-       "window_role": "^browser\\-window$"
+         "class": "^Bitwarden$",
+         "instance": "^bitwarden$",
+         "window_role": "^browser\\-window$"
        }
     ],
     "type": "con"
@@ -33,13 +33,13 @@
        "y": 650
     },
     "marks": [],
-    "name": "Clientele TODO",
+    "name": "Notion",
     "percent": 0.333333333333333,
     "swallows": [
        {
-       "class": "^Notion$",
-       "instance": "^notion$",
-       "window_role": "^browser\\-window$"
+         "class": "^Notion$",
+         "instance": "^notion$",
+         "window_role": "^browser\\-window$"
        }
     ],
     "type": "con"
@@ -60,9 +60,9 @@
     "percent": 0.333333333333333,
     "swallows": [
        {
-       "class": "^electron\\-mail$",
-       "instance": "^electron\\-mail$",
-       "window_role": "^browser\\-window$"
+         "class": "^electron\\-mail$",
+         "instance": "^electron\\-mail$",
+         "window_role": "^browser\\-window$"
        }
     ],
     "type": "con"
