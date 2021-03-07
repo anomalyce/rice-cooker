@@ -172,28 +172,6 @@
                }
             ],
             "type": "con"
-        },
-        {
-            "border": "pixel",
-            "current_border_width": 1,
-            "floating": "auto_off",
-            "geometry": {
-               "height": 2068,
-               "width": 936,
-               "x": 0,
-               "y": 0
-            },
-            "marks": [],
-            "name": "Twitter",
-            "percent": 0.333333333333333,
-            "swallows": [
-               {
-                 "class": "^FirefoxTwitter$",
-                  "instance": "^Navigator$",
-                 "window_role": "^browser$"
-               }
-            ],
-            "type": "con"
         }
     ]
 }

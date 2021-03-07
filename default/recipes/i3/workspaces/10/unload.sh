@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Firefox Twitter
-pkill -f "\-\-class\=FirefoxTwitter"
-
 # Discord
 pkill Discord
 

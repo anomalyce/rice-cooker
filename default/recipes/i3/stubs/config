@@ -134,7 +134,8 @@ assign [title="AlacrittyTodoList"] @[[ws10]]
 exec --no-startup-id ${RECIPE_DIST_DIR}/scripts/screenlayout.sh
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-fill @[[HOME]]/Pictures/wallpaper @[[HOME]]/Pictures/wallpaper-vertical &
+exec_always --no-startup-id feh --bg-fill --randomize ~/Desktop/emma &
+#exec_always --no-startup-id feh --bg-fill @[[HOME]]/Pictures/wallpaper @[[HOME]]/Pictures/wallpaper-vertical &
 
 # Polybar
 exec --no-startup-id @[[HOME]]/.local/share/rice-cooker/polybar/polybar.sh &
@@ -321,25 +322,22 @@ mode "resize" {
 set @[[transparent]]    "#000000"
 set @[[bg_active]]      "#181b23"
 set @[[bg_inactive]]    "#12141a"
+set @[[bg_urgent]]      "#f84d4e"
 set @[[fg_active]]      "#B8BECF"
 set @[[fg_inactive]]    "#393E4E"
+set @[[fg_urgent]]      "#ffffff"
 set @[[b_active]]       "#393E4E"
 set @[[b_inactive]]     "#282C38"
-
-set @[[red]]        "#ff0000"
-set @[[green]]      "#00ff00"
-set @[[blue]]       "#0000ff"
-set @[[yellow]]     "#ffff00"
-set @[[magenta]]    "#ff00ff"
+set @[[b_urgent]]       "#f84d4e"
 
 # Window Colors (Border, Background, Text, Indicator, Child Border)
 # Window Type               Tab Border          Background          Text                Indicator           Window Border
 client.focused              @[[b_inactive]]     @[[bg_active]]      @[[fg_active]]      @[[b_active]]       @[[b_inactive]]
 client.focused_inactive     @[[b_inactive]]     @[[bg_inactive]]    @[[fg_active]]      @[[b_active]]       @[[b_inactive]]
 client.unfocused            @[[b_inactive]]     @[[transparent]]    @[[fg_inactive]]    @[[b_active]]       @[[b_inactive]]
-client.urgent               @[[red]]            @[[green]]          @[[blue]]           @[[b_active]]       @[[magenta]]
+client.urgent               @[[b_inactive]]     @[[bg_urgent]]      @[[fg_urgent]]      @[[b_urgent]]       @[[b_urgent]]
 client.placeholder          @[[b_inactive]]     @[[transparent]]    @[[fg_inactive]]    @[[b_active]]       @[[b_inactive]]
-client.background           @[[red]]
+client.background           @[[transparent]]
 
 # Borders
 default_border pixel 1

@@ -7,10 +7,10 @@
 #     --output HDMI-A-0 --off \
 #     --output DVI-D-0 --off
 
-SCREENLAYOUT="${RECIPE_DIST_DIR}/../qemu-windows/screenlayouts/dual-4k.sh"
+SCREENLAYOUT="${RECIPE_DIST_DIR}/../qemu-windows/dual-4k.sh"
 
-if [[ -f "${LAYOUT/dual-4k.json/dual-4k-vertical.json}" ]]; then
-    SCREENLAYOUT="${SCREENLAYOUT/dual-4k.json/dual-4k-vertical.json}"
+if [[ -f "${SCREENLAYOUT/dual-4k/dual-4k-vertical}" ]]; then
+    SCREENLAYOUT="${SCREENLAYOUT/dual-4k/dual-4k-vertical}"
 fi
 
-source "${SCREENLAYOUT}"
+source "@[[SCREENLAYOUT]]"

@@ -3,11 +3,19 @@
     --compose-input-background-focused: $THEME_BACKGROUND !important;
     --compose-input-border: $THEME_BACKGROUND !important;
     --compose-input-border-focused: $THEME_BACKGROUND !important;
-    --rich-text-panel-background: transparent !important;
     --search-input-background: $THEME_BACKGROUND_LIGHT !important;
 
     --chat-image: none !important;
     --bg-image: none !important;
+
+    --drawer-background: rgba(12, 14, 18, 0.9);
+    --drawer-background-deep: var(--drawer-background);
+    --media-viewer-background: var(--drawer-background);
+    --dropdown-background: var(--drawer-background);
+    --drawer-gallery-background: var(--drawer-background);
+    --panel-background-deeper: var(--drawer-background);
+    --rich-text-panel-background: var(--drawer-background);
+    --rich-text-panel-background: var(--drawer-background);
 
     --bg-0: transparent !important;
     --bg-1: transparent !important;

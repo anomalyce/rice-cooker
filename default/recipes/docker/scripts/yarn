@@ -3,6 +3,7 @@
 docker run --rm --interactive --tty \
     --user 'node' \
     --volume $PWD:/app \
+    -p 3000:3000 \
     --workdir /app \
-    node:latest \
+    node:lts-alpine3.10 \
     yarn $@

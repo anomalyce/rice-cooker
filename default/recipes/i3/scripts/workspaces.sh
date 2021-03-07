@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-SELF_DIR=`realpath $(dirname "$0")`
+SELF_DIR=`realpath $(dirname "$BASH_SOURCE")`
 WORKSPACE_DIR="$(dirname ${SELF_DIR})/workspaces"
 TMP_WORKSPACE=1000
 
 # Kill all global programs
 if [ -f "${WORKSPACE_DIR}/global/unload.sh" ]; then
-    i3-msg --quiet "exec --no-startup-id ${WORKSPACE_DIR}/global/unload.sh"
+   i3-msg --quiet "exec --no-startup-id ${WORKSPACE_DIR}/global/unload.sh"
 fi
 
 # Killing all existing programs and re-creating the workspace layouts
