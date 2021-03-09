@@ -28,12 +28,12 @@
                        "y": 0
                     },
                     "marks": [],
-                    "name": "AlacrittyTodoList",
+                    "name": "Startup Shell",
                     "percent": 1,
                     "swallows": [
                        {
                          "class": "^Alacritty$",
-                         "instance": "^AlacrittyTodoList$"
+                         "instance": "^AlacrittyStartup$"
                        }
                     ],
                     "type": "con"

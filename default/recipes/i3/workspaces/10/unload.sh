@@ -21,7 +21,10 @@ pkill -f "\-\-class\=FirefoxYouTube"
 # Spotify
 pkill spotify
 
-# TodoList
-pkill -f "\-\-class\=AlacrittyTodoList"
+# Startup Shell
+pkill -f "\-\-class\=AlacrittyStartup"
+
+# Taskbook
+# pkill -f "\-\-class\=AlacrittyTodoList"
 
 exit 0

@@ -122,6 +122,7 @@ assign [class="Spotify"] @[[ws10]]
 assign [class="Chromium-browser"] @[[ws10]]
 assign [class="vlc"] @[[ws10]]
 assign [class="FirefoxTwitter"] @[[ws10]]
+assign [title="AlacrittyStartup"] @[[ws10]]
 assign [title="AlacrittyTodoList"] @[[ws10]]
 
 
