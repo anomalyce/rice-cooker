@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DOCKER_SERVICE=$(docker ps --filter "name=docker_app-php_1" --quiet)
+DOCKER_SERVICE=$(docker ps --filter "name=-php_1" --quiet)
 NEUTRON=$(neutron-project $PWD)
 
 
