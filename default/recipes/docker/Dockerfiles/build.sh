@@ -5,9 +5,9 @@ docker build \
     --build-arg DOCKER_UID=$(id -u) \
     --build-arg DOCKER_GID=$(id -g) \
     -t globalnode \
-    -f ./npm ../
+    -f ./dnpm ../
 
 docker build \
     --no-cache \
     -t globalphp \
-    -f ./php ../
+    -f ./dphp ../
