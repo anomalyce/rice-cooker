@@ -10,8 +10,8 @@
     --background-primary: transparent;
 
     /* Sidebar background */
-    --background-secondary: transparent;
-    /* --background-secondary: #0c0e12; */
+    /* --background-secondary: transparent; */
+    --background-secondary: #0c0e12;
 
     /* Sidebar bottom background */
     --background-secondary-alt: transparent;

@@ -28,7 +28,7 @@ set @[[ws10]] "10"
 # v ------------------ Configuration ------------------ v #
 
 # Typography
-font pango:Cantarell 16
+font pango:Cantarell 12
 
 # Key to drag floating windows with
 floating_modifier @[[mod]]
@@ -345,7 +345,7 @@ default_floating_border pixel 1
 
 # Gaps
 gaps inner 25
-gaps top 75
+gaps top 45
 
 # Window Titles
 for_window [class="^.*"] title_format "  %class "
