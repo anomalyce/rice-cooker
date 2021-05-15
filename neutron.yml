@@ -20,7 +20,7 @@ i3_workspace:
         nodes:
             vscode: true
     panel_right:
-        width: 0.35
+        tabbed: 0.35
         nodes:
             Cache:
                 terminal: true
