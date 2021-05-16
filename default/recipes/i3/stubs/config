@@ -131,11 +131,8 @@ assign [title="AlacrittyTodoList"] @[[ws10]]
 
 # v ------------------ Execution ------------------ v #
 
-# Screenlayout
+# Screenlayout / Wallpaper
 exec --no-startup-id ${RECIPE_DIST_DIR}/scripts/screenlayout.sh
-
-# Wallpaper
-exec_always --no-startup-id feh --bg-fill @[[HOME]]/Pictures/wallpaper @[[HOME]]/Pictures/wallpaper-vertical &
 
 # Polybar
 exec --no-startup-id @[[HOME]]/.local/share/rice-cooker/polybar/polybar.sh &
