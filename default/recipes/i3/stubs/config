@@ -116,6 +116,7 @@ assign [class="Bitwarden"] @[[ws9]]
 workspace @[[ws10]] output @[[secondary]]
 assign [class="discord"] @[[ws10]]
 assign [class="Ferdi"] @[[ws10]]
+assign [class="whatsdesk"] @[[ws10]]
 assign [class="Riot"] @[[ws10]]
 assign [class="FirefoxYouTube"] @[[ws10]]
 assign [class="Spotify"] @[[ws10]]
@@ -357,3 +358,4 @@ for_window [class="(Subl3?|VSCodium|code-oss)"] title_format "  Editor "
 for_window [class="electron-mail"] title_format "  Inbox "
 for_window [class="Bitwarden"] title_format "  Password Manager "
 for_window [class="KeeWeb"] title_format "  Password Manager "
+for_window [class="whatsdesk"] title_format "  WhatsApp "

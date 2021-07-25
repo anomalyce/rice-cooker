@@ -107,13 +107,12 @@
                "y": 40
             },
             "marks": [],
-            "name": "Ferdi",
+            "name": "WhatsApp",
             "percent": 0.333333333333333,
             "swallows": [
                {
-                 "class": "^Ferdi$",
-                 "instance": "^ferdi$",
-                 "window_role": "^browser\\-window$"
+                 "class": "^whatsdesk$",
+                 "instance": "^whatsdesk$"
                }
             ],
             "type": "con"
@@ -146,8 +145,7 @@
             "swallows": [
                {
                  "class": "^FirefoxYouTube$",
-                 "instance": "^Navigator$",
-                 "window_role": "^browser$"
+                 "instance": "^Navigator$"
                }
             ],
             "type": "con"

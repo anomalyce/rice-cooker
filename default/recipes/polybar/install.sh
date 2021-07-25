@@ -55,6 +55,12 @@ cp -r "${RECIPE_DIR}/stubs/modules/timedate" "${RECIPE_DIST_DIR}/modules/timedat
 rice_cooker_substitute_env "${RECIPE_DIST_DIR}/modules/timedate/timedate.ini"
 echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/modules/timedate/timedate.ini"
 
+rice_cooker_debug "Publishing Microphone module"
+cp -r "${RECIPE_DIR}/stubs/modules/microphone" "${RECIPE_DIST_DIR}/modules/microphone"
+rice_cooker_substitute_env "${RECIPE_DIST_DIR}/modules/microphone/microphone.ini"
+echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/modules/microphone/microphone.ini"
+chmod +x "${RECIPE_DIST_DIR}/modules/microphone/microphone.sh"
+
 rice_cooker_debug "Publishing Volume module"
 cp -r "${RECIPE_DIR}/stubs/modules/volume" "${RECIPE_DIST_DIR}/modules/volume"
 rice_cooker_substitute_env "${RECIPE_DIST_DIR}/modules/volume/volume.ini"

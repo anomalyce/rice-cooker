@@ -1,4 +1,4 @@
-vscode_project:
+sublime_project:
     "%project%":
         path: "."
     dist:
@@ -18,7 +18,7 @@ i3_workspace:
     panel_left:
         width: 0.65
         nodes:
-            vscode: true
+            editor: true
     panel_right:
         tabbed: 0.35
         nodes:

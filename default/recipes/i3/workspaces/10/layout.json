@@ -95,13 +95,12 @@
                         "x": 4876,
                         "y": 40
                     },
-                    "name": "Ferdi",
+                    "name": "WhatsApp",
                     "percent": 0.33,
                     "swallows": [
                         {
-                            "class": "^Ferdi$",
-                            "title": "^Ferdi$",
-                            "window_role": "^browser\\-window$"
+                            "class": "^whatsdesk$",
+                            "title": "^whatsdesk$"
                         }
                     ]
                 },

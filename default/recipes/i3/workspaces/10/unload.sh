@@ -7,7 +7,16 @@ pkill Discord
 pkill signal-desktop
 
 # Ferdi
-pkill ferdi
+# pkill ferdi
+
+# WhatsDesk
+pkill whatsdesk
+pkill whatsdesk
+pkill whatsdesk
+pkill whatsdesk
+pkill whatsdesk
+pkill whatsdesk
+pkill whatsdesk
 
 # Slack
 #pkill slack
