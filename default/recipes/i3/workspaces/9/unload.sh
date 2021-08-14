@@ -12,7 +12,10 @@ pkill notion-app
 # Toggl Desktop
 #pkill TogglDesktop
 
+# 1Password
+pkill 1password
+
 # Bitwarden
-pkill bitwarden
+#pkill bitwarden
 
 exit 0

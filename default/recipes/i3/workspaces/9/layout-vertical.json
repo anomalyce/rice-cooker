@@ -10,12 +10,12 @@
        "y": 40
     },
     "marks": [],
-    "name": "Bitwarden",
+    "name": "1Password",
     "percent": 0.333333333333333,
     "swallows": [
        {
-         "class": "^Bitwarden$",
-         "instance": "^bitwarden$",
+         "class": "^1Password$",
+         "instance": "^1password$",
          "window_role": "^browser\\-window$"
        }
     ],

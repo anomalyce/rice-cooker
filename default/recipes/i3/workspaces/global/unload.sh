@@ -7,6 +7,6 @@ pkill dunst
 pkill picom
 
 # KeeWeb (Scratchpad)
-pkill -f "keeweb"
+# pkill -f "keeweb"
 
 exit 0

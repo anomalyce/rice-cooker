@@ -5,6 +5,8 @@ sublime_project:
         path: "~/.local/share/rice-cooker"
     cache:
         path: "~/.cache/rice-cooker"
+    scripts:
+        path: "~/Desktop/scripts"
 
 # sublime_project:
 #     "%project%":
@@ -16,12 +18,15 @@ sublime_project:
 
 i3_workspace:
     panel_left:
-        width: 0.65
+        width: 0.55
         nodes:
             editor: true
     panel_right:
-        tabbed: 0.35
+        tabbed: 0.45
         nodes:
+            Scripts:
+                terminal: true
+                path: "~/Desktop/scripts"
             Cache:
                 terminal: true
                 path: "~/.cache/rice-cooker"

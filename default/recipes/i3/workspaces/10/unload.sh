@@ -11,12 +11,6 @@ pkill signal-desktop
 
 # WhatsDesk
 pkill whatsdesk
-pkill whatsdesk
-pkill whatsdesk
-pkill whatsdesk
-pkill whatsdesk
-pkill whatsdesk
-pkill whatsdesk
 
 # Slack
 #pkill slack

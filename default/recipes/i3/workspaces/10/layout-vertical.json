@@ -112,7 +112,8 @@
             "swallows": [
                {
                  "class": "^whatsdesk$",
-                 "instance": "^whatsdesk$"
+                 "instance": "^whatsdesk$",
+                 "window_role": "^browser\\-window$"
                }
             ],
             "type": "con"

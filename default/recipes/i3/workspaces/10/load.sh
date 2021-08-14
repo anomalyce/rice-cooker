@@ -14,7 +14,7 @@ i3-msg --quiet "exec --no-startup-id nohup signal-desktop >/dev/null 2>&1 &"
 i3-msg --quiet "exec --no-startup-id nohup whatsdesk >/dev/null 2>&1 &"
 
 # Slack
-#i3-msg --quiet "exec --no-startup-id nohup slack >/dev/null 2>&1 &"
+# i3-msg --quiet "exec --no-startup-id nohup slack >/dev/null 2>&1 &"
 
 # Element/Riot
 # i3-msg --quiet "exec --no-startup-id nohup element-desktop >/dev/null 2>&1 &"
