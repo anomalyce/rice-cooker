@@ -26,6 +26,11 @@ rice_cooker_substitute_env "${RECIPE_DIR}/screenlayouts/dual-4k-vertical.sh"
 echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/dual-4k-vertical.sh"
 chmod +x "${RECIPE_DIST_DIR}/dual-4k-vertical.sh"
 
+rice_cooker_debug "Publishing the Triple screenlayout"
+rice_cooker_substitute_env "${RECIPE_DIR}/screenlayouts/triple.sh"
+echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/triple.sh"
+chmod +x "${RECIPE_DIST_DIR}/triple.sh"
+
 rice_cooker_debug "Publishing the VFIO load script"
 rice_cooker_substitute_env "${RECIPE_DIR}/scripts/vfio-load.sh"
 echo "${RICE_COOKER_OUTPUT}" > "${RECIPE_DIST_DIR}/vfio-load.sh"

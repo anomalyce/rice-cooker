@@ -37,8 +37,8 @@
     "percent": 0.333333333333333,
     "swallows": [
        {
-         "class": "^Notion$",
-         "instance": "^notion$",
+         "class": "^notion-app$",
+         "instance": "^notion-app$",
          "window_role": "^browser\\-window$"
        }
     ],

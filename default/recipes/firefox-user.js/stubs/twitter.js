@@ -51,7 +51,7 @@ user_pref("keyword.enabled", true);
 user_pref("ui.context_menus.after_mouseup", true);
 
 // HiDPI UI re-scaling
-user_pref("layout.css.devPixelsPerPx", "1.4");
+user_pref("layout.css.devPixelsPerPx", "0.8");
 
 // Disable `Preferences: Privacy & Security > Logins and Passwords > Ask to save logins and passwords for websites`
 user_pref("signon.rememberSignons", false);
@@ -65,6 +65,7 @@ user_pref("privacy.clearOnShutdown.sessions", false);
 user_pref("privacy.cpd.sessions", false);
 
 // Disable `Preferences: Privacy & Security > History > Settings > Cookies`
+user_pref("network.cookie.lifetimePolicy", 2);
 user_pref("privacy.clearOnShutdown.cookies", false);
 user_pref("privacy.cpd.cookies", false);
 

@@ -9,19 +9,19 @@ OPTIONS="\
 -sep '|' \
 -dmenu \
 -i \
--bw 15 \
+-bw 2 \
 -lines 4 \
 -padding 25 \
 -line-padding 18 \
 -width 20 \
 -xoffset 0 \
--yoffset 65 \
--location 3 \
+-yoffset 0 \
+-location 0 \
 -columns 1 \
 -no-lazy-grab \
 -monitor primary \
 -color-enabled true ${COLOURS} \
--theme-str 'element-icon { size: 1.2em; }' \
+-theme-str 'element-icon { size: 1.2em; } element-text, element-icon { background-color: inherit; text-color: inherit; }' \
 "
 
 COMMAND="rofi ${OPTIONS} <<< 'Lock|Log Out|Reboot|Shutdown'"

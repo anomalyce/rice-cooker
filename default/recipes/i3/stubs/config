@@ -6,20 +6,21 @@
 set @[[mod]] Mod4
 
 # Monitor Outputs
-set @[[primary]] "${MONITOR_PRIMARY}"
-set @[[secondary]] "${MONITOR_SECONDARY}"
+set @[[monitorleft]] "${MONITOR_LEFT}"
+set @[[monitorprimary]] "${MONITOR_PRIMARY}"
+set @[[monitorright]] "${MONITOR_RIGHT}"
 
 # Workspaces
-set @[[ws1]] "1"
-set @[[ws2]] "2"
-set @[[ws3]] "3"
-set @[[ws4]] "4"
-set @[[ws5]] "5"
-set @[[ws6]] "6"
-set @[[ws7]] "7"
-set @[[ws8]] "8"
-set @[[ws9]] "9"
-set @[[ws10]] "10"
+set @[[ws1]] neutron(setup.default)@1
+set @[[ws2]] neutron(setup.default)@2
+set @[[ws3]] neutron(setup.default)@3
+set @[[ws4]] neutron(setup.default)@4
+set @[[ws5]] neutron(setup.default)@5
+set @[[ws6]] neutron(setup.default)@6
+set @[[ws7]] neutron(setup.default)@7
+set @[[ws8]] neutron(setup.default)@8
+set @[[ws9]] neutron(setup.default)@9
+set @[[ws10]] neutron(setup.default)@10
 
 
 
@@ -32,6 +33,9 @@ font pango:Cantarell 12
 
 # Key to drag floating windows with
 floating_modifier @[[mod]]
+
+# Hide titlebar marks
+show_marks no
 
 
 
@@ -61,11 +65,45 @@ for_window [class="^TeamViewer"] floating enable
 
 
 
+# v ------------------ Neutron ------------------ v #
+
+exec --no-startup-id await-network "@[[HOME]]/Desktop/scripts/neutron/neutron.py -o @[[HOME]]/Desktop/scripts/neutron/profiles/setup.json"
+
+# Jump to workspace
+bindsym @[[mod]]+1 exec --no-startup-id @[[HOME]]/Desktop/scripts/neutron/neutron.py --goto "@[[ws1]]"
+bindsym @[[mod]]+2 exec --no-startup-id @[[HOME]]/Desktop/scripts/neutron/neutron.py --goto "@[[ws2]]"
+bindsym @[[mod]]+3 exec --no-startup-id @[[HOME]]/Desktop/scripts/neutron/neutron.py --goto "@[[ws3]]"
+bindsym @[[mod]]+4 exec --no-startup-id @[[HOME]]/Desktop/scripts/neutron/neutron.py --goto "@[[ws4]]"
+bindsym @[[mod]]+5 exec --no-startup-id @[[HOME]]/Desktop/scripts/neutron/neutron.py --goto "@[[ws5]]"
+bindsym @[[mod]]+6 exec --no-startup-id @[[HOME]]/Desktop/scripts/neutron/neutron.py --goto "@[[ws6]]"
+bindsym @[[mod]]+7 exec --no-startup-id @[[HOME]]/Desktop/scripts/neutron/neutron.py --goto "@[[ws7]]"
+bindsym @[[mod]]+8 exec --no-startup-id @[[HOME]]/Desktop/scripts/neutron/neutron.py --goto "@[[ws8]]"
+bindsym @[[mod]]+9 exec --no-startup-id @[[HOME]]/Desktop/scripts/neutron/neutron.py --goto "@[[ws9]]"
+bindsym @[[mod]]+0 exec --no-startup-id @[[HOME]]/Desktop/scripts/neutron/neutron.py --goto "@[[ws10]]"
+bindsym @[[mod]]+g exec --no-startup-id @[[HOME]]/Desktop/scripts/neutron/neutron.py --goto "@[[ws6]]"
+
+# Move focused container to workspace
+bindsym @[[mod]]+Shift+1 exec --no-startup-id @[[HOME]]/Desktop/scripts/neutron/neutron.py --move "@[[ws1]]"
+bindsym @[[mod]]+Shift+2 exec --no-startup-id @[[HOME]]/Desktop/scripts/neutron/neutron.py --move "@[[ws2]]"
+bindsym @[[mod]]+Shift+3 exec --no-startup-id @[[HOME]]/Desktop/scripts/neutron/neutron.py --move "@[[ws3]]"
+bindsym @[[mod]]+Shift+4 exec --no-startup-id @[[HOME]]/Desktop/scripts/neutron/neutron.py --move "@[[ws4]]"
+bindsym @[[mod]]+Shift+5 exec --no-startup-id @[[HOME]]/Desktop/scripts/neutron/neutron.py --move "@[[ws5]]"
+bindsym @[[mod]]+Shift+6 exec --no-startup-id @[[HOME]]/Desktop/scripts/neutron/neutron.py --move "@[[ws6]]"
+bindsym @[[mod]]+Shift+7 exec --no-startup-id @[[HOME]]/Desktop/scripts/neutron/neutron.py --move "@[[ws7]]"
+bindsym @[[mod]]+Shift+8 exec --no-startup-id @[[HOME]]/Desktop/scripts/neutron/neutron.py --move "@[[ws8]]"
+bindsym @[[mod]]+Shift+9 exec --no-startup-id @[[HOME]]/Desktop/scripts/neutron/neutron.py --move "@[[ws9]]"
+bindsym @[[mod]]+Shift+0 exec --no-startup-id @[[HOME]]/Desktop/scripts/neutron/neutron.py --move "@[[ws10]]"
+bindsym @[[mod]]+Shift+g exec --no-startup-id @[[HOME]]/Desktop/scripts/neutron/neutron.py --move "@[[ws6]]"
+
+
+
+
+
 # v ------------------ Password Manager ------------------ v #
 
-for_window [class="KeeWeb"] floating toggle, resize set 50 ppt 60 ppt, move position center, move to workspace current, sticky enable
+# for_window [class="KeeWeb"] floating toggle, resize set 50 ppt 60 ppt, move position center, move to workspace current, sticky enable
 
-bindsym @[[mod]]+Shift+k exec --no-startup-id nohup keeweb --force-device-scale-factor=2 >/dev/null 2>&1 &
+# bindsym @[[mod]]+Shift+k exec --no-startup-id nohup keeweb --force-device-scale-factor=2 >/dev/null 2>&1 &
 
 
 
@@ -75,45 +113,45 @@ bindsym @[[mod]]+Shift+k exec --no-startup-id nohup keeweb --force-device-scale-
 # v ------------------ Workspaces ------------------ v #
 
 # Workspace 1
-workspace @[[ws1]] output @[[primary]]
+workspace @[[ws1]] output @[[monitorprimary]]
 
 # Workspace 2
-workspace @[[ws2]] output @[[primary]]
+workspace @[[ws2]] output @[[monitorprimary]]
 assign [class="^firefox$"] @[[ws2]]
 
 # Workspace 3
-workspace @[[ws3]] output @[[primary]]
+workspace @[[ws3]] output @[[monitorprimary]]
 assign [class="Subl3?" title="Sublime Text$"] @[[ws3]]
 
 # Workspace 4
-workspace @[[ws4]] output @[[primary]]
+workspace @[[ws4]] output @[[monitorprimary]]
 
 # Workspace 5
-workspace @[[ws5]] output @[[primary]]
+workspace @[[ws5]] output @[[monitorprimary]]
+assign [class="Gimp"] @[[ws5]]
+assign [class="figma-linux"] @[[ws5]]
 
 # Workspace 6
-workspace @[[ws6]] output @[[primary]]
-assign [class="Gimp"] @[[ws6]]
-assign [class="figma-linux"] @[[ws6]]
+workspace @[[ws6]] output @[[monitorprimary]]
+assign [class="looking-glass-client"] @[[ws6]]
+assign [class="Steam"] @[[ws6]]
+assign [class="^(m|M)inecraft"] @[[ws6]]
+for_window [class="^(m|M)inecraft"] move to workspace @[[ws6]]
 
 # Workspace 7
-workspace @[[ws7]] output @[[primary]]
-assign [class="looking-glass-client"] @[[ws7]]
-assign [class="Steam"] @[[ws7]]
-assign [class="^(m|M)inecraft"] @[[ws7]]
-for_window [class="^(m|M)inecraft"] move to workspace @[[ws7]]
+workspace @[[ws7]] output @[[monitorright]]
 
 # Workspace 8
-workspace @[[ws8]] output @[[secondary]]
+workspace @[[ws8]] output @[[monitorright]]
 
 # Workspace 9
-workspace @[[ws9]] output @[[secondary]]
+workspace @[[ws9]] output @[[monitorleft]]
 assign [class="electron-mail"] @[[ws9]]
 assign [class="Todoist"] @[[ws9]]
 assign [class="Bitwarden"] @[[ws9]]
 
 # Workspace 10
-workspace @[[ws10]] output @[[secondary]]
+workspace @[[ws10]] output @[[monitorleft]]
 assign [class="discord"] @[[ws10]]
 assign [class="Ferdi"] @[[ws10]]
 assign [class="whatsdesk"] @[[ws10]]
@@ -139,13 +177,15 @@ exec --no-startup-id ${RECIPE_DIST_DIR}/scripts/screenlayout.sh
 exec --no-startup-id @[[HOME]]/.local/share/rice-cooker/polybar/polybar.sh &
 
 # Conky
-exec --no-startup-id cd @[[HOME]]/.local/share/rice-cooker/conky && conky --quiet --config=@[[HOME]]/.local/share/rice-cooker/conky/conky.conf &
+#exec --no-startup-id cd @[[HOME]]/.local/share/rice-cooker/conky && conky --quiet --config=@[[HOME]]/.local/share/rice-cooker/conky/conky.conf &
 
 # GNOME Keyring
 exec_always ${RECIPE_DIST_DIR}/scripts/gnome-keyring.sh
 
 # Workspaces
-exec --no-startup-id await-network "${RECIPE_DIST_DIR}/scripts/workspaces.sh"
+exec --no-startup-id nohup dunst >/dev/null 2>&1 &
+exec --no-startup-id nohup dbus-launch picom --config=@[[HOME]]/.config/picom/picom.conf >/dev/null 2>&1 &
+#exec --no-startup-id await-network "${RECIPE_DIST_DIR}/scripts/workspaces.sh"
 
 # Mouse buttons
 exec --no-startup-id @[[USERSCRIPTS]]/misc/hardware/disable-mouse-buttons.sh &
@@ -157,7 +197,7 @@ exec --no-startup-id @[[USERSCRIPTS]]/misc/hardware/disable-mouse-buttons.sh &
 # v ------------------ Actions ------------------ v #
 
 # Terminal Launcher
-bindsym @[[mod]]+Return exec --no-startup-id alacritty
+bindsym @[[mod]]+Return exec --no-startup-id WINIT_X11_SCALE_FACTOR=randr alacritty
 bindsym @[[mod]]+Shift+Return exec --no-startup-id xterm -fa 'Monospace' -fs 14 -bg black -fg white
 
 # System Launcher
@@ -261,30 +301,30 @@ bindsym @[[mod]]+e layout toggle split
 bindsym @[[mod]]+Shift+s move workspace to output left
 
 # Jump to workspace
-bindsym @[[mod]]+1 workspace @[[ws1]]
-bindsym @[[mod]]+2 workspace @[[ws2]]
-bindsym @[[mod]]+3 workspace @[[ws3]]
-bindsym @[[mod]]+4 workspace @[[ws4]]
-bindsym @[[mod]]+5 workspace @[[ws5]]
-bindsym @[[mod]]+6 workspace @[[ws6]]
-bindsym @[[mod]]+7 workspace @[[ws7]]
-bindsym @[[mod]]+g workspace @[[ws7]]
-bindsym @[[mod]]+8 workspace @[[ws8]]
-bindsym @[[mod]]+9 workspace @[[ws9]]
-bindsym @[[mod]]+0 workspace @[[ws10]]
+#bindsym @[[mod]]+1 workspace @[[ws1]]
+#bindsym @[[mod]]+2 workspace @[[ws2]]
+#bindsym @[[mod]]+3 workspace @[[ws3]]
+#bindsym @[[mod]]+4 workspace @[[ws4]]
+#bindsym @[[mod]]+5 workspace @[[ws5]]
+#bindsym @[[mod]]+6 workspace @[[ws6]]
+#bindsym @[[mod]]+7 workspace @[[ws7]]
+#bindsym @[[mod]]+g workspace @[[ws7]]
+#bindsym @[[mod]]+8 workspace @[[ws8]]
+#bindsym @[[mod]]+9 workspace @[[ws9]]
+#bindsym @[[mod]]+0 workspace @[[ws10]]
 
 # Move focused container to workspace
-bindsym @[[mod]]+Shift+1 move container to workspace @[[ws1]]
-bindsym @[[mod]]+Shift+2 move container to workspace @[[ws2]]
-bindsym @[[mod]]+Shift+3 move container to workspace @[[ws3]]
-bindsym @[[mod]]+Shift+4 move container to workspace @[[ws4]]
-bindsym @[[mod]]+Shift+5 move container to workspace @[[ws5]]
-bindsym @[[mod]]+Shift+6 move container to workspace @[[ws6]]
-bindsym @[[mod]]+Shift+7 move container to workspace @[[ws7]]
-bindsym @[[mod]]+Shift+g move container to workspace @[[ws7]]
-bindsym @[[mod]]+Shift+8 move container to workspace @[[ws8]]
-bindsym @[[mod]]+Shift+9 move container to workspace @[[ws9]]
-bindsym @[[mod]]+Shift+0 move container to workspace @[[ws10]]
+#bindsym @[[mod]]+Shift+1 move container to workspace @[[ws1]]
+#bindsym @[[mod]]+Shift+2 move container to workspace @[[ws2]]
+#bindsym @[[mod]]+Shift+3 move container to workspace @[[ws3]]
+#bindsym @[[mod]]+Shift+4 move container to workspace @[[ws4]]
+#bindsym @[[mod]]+Shift+5 move container to workspace @[[ws5]]
+#bindsym @[[mod]]+Shift+6 move container to workspace @[[ws6]]
+#bindsym @[[mod]]+Shift+7 move container to workspace @[[ws7]]
+#bindsym @[[mod]]+Shift+g move container to workspace @[[ws7]]
+#bindsym @[[mod]]+Shift+8 move container to workspace @[[ws8]]
+#bindsym @[[mod]]+Shift+9 move container to workspace @[[ws9]]
+#bindsym @[[mod]]+Shift+0 move container to workspace @[[ws10]]
 
 
 
@@ -317,33 +357,50 @@ mode "resize" {
 
 # v ------------------ Theming ------------------ v #
 
-set @[[transparent]]    "#000000"
-set @[[bg_active]]      "#181b23"
-set @[[bg_inactive]]    "#12141a"
-set @[[bg_urgent]]      "#f84d4e"
-set @[[fg_active]]      "#B8BECF"
-set @[[fg_inactive]]    "#393E4E"
-set @[[fg_urgent]]      "#ffffff"
-set @[[b_active]]       "#393E4E"
-set @[[b_inactive]]     "#282C38"
-set @[[b_urgent]]       "#f84d4e"
+set @[[transparent]]    "#00000000"
+
+set @[[bg_active]]      "#ffffff1a"
+set @[[fg_active]]      "#ffffff"
+
+set @[[bg_inactive]]    "#1c1b2255"
+set @[[fg_inactive]]    "#b9c2d2cc"
+
+set @[[bg_urgent]]      "#1c1b2255"
+set @[[fg_urgent]]      "#f84d4e"
 
 # Window Colors (Border, Background, Text, Indicator, Child Border)
 # Window Type               Tab Border          Background          Text                Indicator           Window Border
-client.focused              @[[b_inactive]]     @[[bg_active]]      @[[fg_active]]      @[[b_active]]       @[[b_inactive]]
-client.focused_inactive     @[[b_inactive]]     @[[bg_inactive]]    @[[fg_active]]      @[[b_active]]       @[[b_inactive]]
-client.unfocused            @[[b_inactive]]     @[[transparent]]    @[[fg_inactive]]    @[[b_active]]       @[[b_inactive]]
-client.urgent               @[[b_inactive]]     @[[bg_urgent]]      @[[fg_urgent]]      @[[b_urgent]]       @[[b_urgent]]
-client.placeholder          @[[b_inactive]]     @[[transparent]]    @[[fg_inactive]]    @[[b_active]]       @[[b_inactive]]
+client.focused              @[[transparent]]    @[[bg_active]]      @[[fg_active]]      @[[transparent]]    @[[transparent]]
+client.focused_inactive     @[[transparent]]    @[[bg_active]]      @[[fg_active]]      @[[transparent]]    @[[transparent]]
+client.unfocused            @[[transparent]]    @[[bg_inactive]]    @[[fg_inactive]]    @[[transparent]]    @[[transparent]]
+client.urgent               @[[transparent]]    @[[bg_urgent]]      @[[fg_urgent]]      @[[transparent]]    @[[transparent]]
+client.placeholder          @[[transparent]]    @[[transparent]]    @[[fg_inactive]]    @[[transparent]]    @[[transparent]]
 client.background           @[[transparent]]
 
 # Borders
-default_border pixel 1
-default_floating_border pixel 1
+default_border pixel 0
+default_floating_border pixel 0
 
 # Gaps
-gaps inner 25
-gaps top 45
+gaps inner 15
+
+workspace @[[ws1]] gaps top 35
+workspace @[[ws1]] gaps inner 10
+
+workspace @[[ws2]] gaps top 35
+workspace @[[ws2]] gaps inner 10
+
+workspace @[[ws3]] gaps top 35
+workspace @[[ws3]] gaps inner 10
+
+workspace @[[ws4]] gaps top 35
+workspace @[[ws4]] gaps inner 10
+
+workspace @[[ws5]] gaps top 35
+workspace @[[ws5]] gaps inner 10
+
+workspace @[[ws6]] gaps top 35
+workspace @[[ws6]] gaps inner 10
 
 # Window Titles
 for_window [class="^.*"] title_format "  %class "

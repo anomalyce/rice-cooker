@@ -8,14 +8,14 @@ OPTIONS="\
 -font 'Fira Code 16' \
 -show drun \
 -drun-display-format \" {name}\" \
--bw 15 \
--lines 15 \
+-bw 2 \
+-lines 10 \
 -padding 25 \
 -line-padding 15 \
 -width 30 \
 -xoffset 0 \
--yoffset 65 \
--location 1 \
+-yoffset 0 \
+-location 0 \
 -columns 1 \
 -no-lazy-grab \
 -monitor primary \
@@ -23,7 +23,7 @@ OPTIONS="\
 -show-icons \
 -icon-theme \"Papirus\" \
 -color-enabled true ${COLOURS} \
--theme-str 'element-icon { size: 1.2em; }' \
+-theme-str 'element-icon { size: 1.2em; } element-text, element-icon { background-color: inherit; text-color: inherit; }' \
 "
 
 COMMAND="rofi ${OPTIONS}"

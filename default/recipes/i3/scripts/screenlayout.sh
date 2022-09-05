@@ -7,7 +7,7 @@
 #     --output HDMI-A-0 --off \
 #     --output DVI-D-0 --off
 
-SCREENLAYOUT="${RECIPE_DIST_DIR}/../qemu-windows/dual-4k.sh"
+SCREENLAYOUT="${RECIPE_DIST_DIR}/../qemu-windows/triple.sh"
 WALLPAPERS='${HOME}/Pictures/wallpaper'
 
 if [[ -f "${SCREENLAYOUT/dual-4k/dual-4k-vertical}" ]]; then

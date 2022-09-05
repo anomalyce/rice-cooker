@@ -9,20 +9,20 @@ OPTIONS="\
 -sep '|' \
 -dmenu \
 -i \
--bw 15 \
--lines 20 \
+-bw 2 \
+-lines 10 \
 -padding 25 \
 -line-padding 18 \
 -width 30 \
 -xoffset 0 \
--yoffset 65 \
--location 1 \
+-yoffset 0 \
+-location 0 \
 -columns 1 \
 -no-lazy-grab \
 -monitor primary \
 -hide-scrollbar true \
 -color-enabled true ${COLOURS} \
--theme-str 'element-icon { size: 1.2em; }' \
+-theme-str 'element-icon { size: 1.2em; } element-text, element-icon { background-color: inherit; text-color: inherit; }' \
 "
 
 COMMAND="rofi ${OPTIONS} <<< '$1'"
